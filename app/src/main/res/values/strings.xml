@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Ainaki</string>
     <string name="label_register">ثبت‌نام</string>
+    <string name="label_login">ورود</string>
     <string name="hint_name">نام</string>
     <string name="hint_family">نام خانوادگی</string>
     <string name="hint_name_and_family">نام و نام‌خانوادگی</string>
@@ -10,4 +11,39 @@
     <string name="hint_username">نام کاربری</string>
     <string name="hint_national_code">کد ملی</string>
     <string name="hint_email">ایمیل</string>
+    <string name="label_confirm">تایید</string>
+    <string name="label_ssfa">SSFA</string>
+    <string name="label_company">Application Design Studio</string>
+    <string name="label_forget_password">فراموشی رمز عبور؟</string>
+    <string name="label_forget_password_normal">فراموشی رمز عبور</string>
+    <string name="label_create_acoount">آیا حساب کاربری ندارید؟</string>
+    <string name="label_ainaki">عینکی</string>
+    <string name="text_forget_password">ایمیل خود را وارد نمایید، ما نحوه تغییر رمز عبور را برای شما ارسال خواهیم کرد</string>
+    <string name="m_icon_star">star</string>
+
+    <string name="m_icon_like">thumb_up_alt</string>
+    <string name="m_icon_dislike">thumb_down_alt</string>
+
+    <string name="m_icon_bookmark_off">turned_in_not</string>
+    <string name="m_icon_bookmark_on">turned_in</string>
+
+    <string name="m_icon_telegram">w</string>
+    <string name="m_icon_instagram">x</string>
+    <string name="m_icon_location">place</string>
+    <string name="m_icon_share">share</string>
+    <string name="m_icon_public">public</string>
+    <string name="m_icon_favorite_border">favorite_border</string>
+    <string name="m_icon_favorite">favorite</string>
+    <string name="m_icon_shopping_basket">shopping_basket</string>
+    <string name="m_icon_shopping_cart">shopping_cart</string>
+    <string name="m_icon_email">email</string>
+    <string name="m_icon_add_a_photo">add_a_photo</string>
+    <string name="m_icon_lens">remove_red_eye</string>
+    <string name="m_icon_settings">settings</string>
+    <string name="m_icon_bug_report">bug_report</string>
+    <string name="m_icon_contact_support">contact_support</string>
+    <string name="m_icon_help">help</string>
+    <string name="m_icon_report">report</string>
+    <string name="m_icon_expand_more">expand_more</string>
+    <string name="m_icon_expand_less">expand_less</string>
 </resources>

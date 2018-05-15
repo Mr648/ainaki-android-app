@@ -21,7 +21,6 @@
             app:expandedTitleMarginEnd="30dp"
             app:expandedTitleMarginStart="30dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:layout_scrollInterpolator="@android:anim/bounce_interpolator"
             app:title="@string/app_name">
 
             <LinearLayout
@@ -35,7 +34,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_register"
+                    android:text="@string/label_login"
                     android:textSize="@dimen/_32sp" />
             </LinearLayout>
 
@@ -53,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:weightSum="10"
-            android:padding="@dimen/_8dp">
+            android:padding="@dimen/_8dp"
+            android:weightSum="15">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -67,45 +66,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="7"
-                android:orientation="vertical"
                 android:focusable="true"
-                android:focusableInTouchMode="true" >
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/inputLayoutName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16dp">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/txtNameAndFamily"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:ems="10"
-                        android:gravity="right"
-                        android:hint="@string/hint_name_and_family" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/inputLayoutPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16dp">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/txtPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:ems="10"
-                        android:gravity="right"
-                        android:hint="@string/hint_phone" />
-
-                </android.support.design.widget.TextInputLayout>
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/inputLayoutEmail"
@@ -126,24 +89,6 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/inputLayoutUsername"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16dp">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/txtUsername"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:ems="10"
-                        android:gravity="right"
-                        android:hint="@string/hint_username" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
                     android:id="@+id/inputLayoutPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,41 +105,60 @@
                         android:hint="@string/hint_password" />
 
                 </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/inputLayoutConfirmPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_16dp">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/txtConfirmPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:ems="10"
-                        android:gravity="right"
-                        android:hint="@string/hint_password_confirm" />
-
-                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="3"
+                android:layout_weight="5"
                 android:gravity="left|center_vertical"
                 android:orientation="horizontal"
                 android:padding="@dimen/_18dp">
 
                 <Button
-                    android:id="@+id/btnNextStep"
+                    android:id="@+id/btnLogin"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_64dp"
                     android:padding="@dimen/_8dp"
-                    android:text="گام بعدی" />
+                    android:text="ورود" />
+
+                <TextView
+                    android:id="@+id/txtForgetPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/label_forget_password" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="@dimen/_18dp">
+
+                <TextView
+                    android:id="@+id/txtRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_8dp"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/label_register"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/label_create_acoount" />
+
+
             </LinearLayout>
         </LinearLayout>
 

@@ -19,6 +19,7 @@
     <dimen name="_104dp">104dp</dimen>
     <dimen name="_128dp">128dp</dimen>
     <dimen name="_144dp">144dp</dimen>
+    <dimen name="_180dp">180dp</dimen>
     <dimen name="_256dp">256dp</dimen>
 
     <dimen name="_2sp">2sp</dimen>
