@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Ainaki</string>
+    <string name="label_register">ثبت‌نام</string>
+    <string name="hint_name">نام</string>
+    <string name="hint_family">نام خانوادگی</string>
+    <string name="hint_name_and_family">نام و نام‌خانوادگی</string>
+    <string name="hint_phone">تلفن</string>
+    <string name="hint_password">رمز عبور</string>
+    <string name="hint_password_confirm">تکرار رمز عبور</string>
+    <string name="hint_username">نام کاربری</string>
+    <string name="hint_national_code">کد ملی</string>
+    <string name="hint_email">ایمیل</string>
 </resources>
