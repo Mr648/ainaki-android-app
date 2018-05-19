@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Ainaki</string>
+    <string name="btn_send">ارسال</string>
     <string name="label_register">ثبت‌نام</string>
+    <string name="label_support_ticket">ارسال تیکت پشتیبانی</string>
     <string name="label_provinces">انتخاب استان</string>
+    <string name="label_support_ticket_type">انتخاب نوع تیکت</string>
     <string name="label_cities">انتخاب شهرستان</string>
     <string name="label_login">ورود</string>
     <string name="hint_name">نام</string>
@@ -15,6 +18,8 @@
     <string name="hint_address">آدرس</string>
     <string name="hint_postal_code">کد پستی</string>
     <string name="hint_email">ایمیل</string>
+    <string name="hint_title">عنوان</string>
+    <string name="hint_more_detail">توضیحات تکمیلی</string>
     <string name="label_confirm">تایید</string>
     <string name="label_ssfa">SSFA</string>
     <string name="label_company">Application Design Studio</string>
@@ -33,6 +38,7 @@
 
     <string name="m_icon_telegram">w</string>
     <string name="m_icon_instagram">x</string>
+
     <string name="m_icon_location">place</string>
     <string name="m_icon_share">share</string>
     <string name="m_icon_public">public</string>

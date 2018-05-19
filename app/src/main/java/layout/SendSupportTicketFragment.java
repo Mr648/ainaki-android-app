@@ -2,7 +2,6 @@ package layout;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -21,18 +20,17 @@ import java.util.ArrayList;
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProvinceCitySpinnerAdapter;
 import apps.sffa.com.ainaki.model.City;
-import apps.sffa.com.ainaki.model.Province;
 import apps.sffa.com.ainaki.util.FontManager;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link RegistrationSecondStepFragment.OnFragmentInteractionListener} interface
+ * {@link SendSupportTicketFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link RegistrationSecondStepFragment#newInstance} factory method to
+ * Use the {@link SendSupportTicketFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegistrationSecondStepFragment extends Fragment {
+public class SendSupportTicketFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -42,26 +40,22 @@ public class RegistrationSecondStepFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private  OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener mListener;
 
-
-
-
-    private Spinner spnProvinces;
-    private Spinner spnCities;
+    private Spinner spnTicketTypes;
     private Typeface fontIranSans;
-    private TextInputEditText txtNationalCode;
-    private TextInputEditText txtAddress;
-    private TextInputEditText txtPostalCode;
+
+    private TextInputEditText txtTitle;
+    private TextInputEditText txtMoreDetail;
+
+    private TextInputLayout inputLayoutTitle;
+    private TextInputLayout inputLayoutMoreDetail;
+
     private TextView textView;
-    private Button btnNextStep;
-    private TextInputLayout inputLayoutNationalCode;
-    private TextInputLayout inputLayoutAddress;
-    private TextInputLayout inputLayoutPostalCode;
+    private Button btnSendSupportTicket;
 
 
-
-    public RegistrationSecondStepFragment() {
+    public SendSupportTicketFragment() {
         // Required empty public constructor
     }
 
@@ -74,8 +68,8 @@ public class RegistrationSecondStepFragment extends Fragment {
      * @return A new instance of fragment RegistrationFirstStepFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RegistrationFirstStepFragment newInstance(String param1, String param2) {
-        RegistrationFirstStepFragment fragment = new RegistrationFirstStepFragment();
+    public static SendSupportTicketFragment newInstance(String param1, String param2) {
+        SendSupportTicketFragment fragment = new SendSupportTicketFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -96,99 +90,73 @@ public class RegistrationSecondStepFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration_second_step, container, false);
+        return inflater.inflate(R.layout.fragment_send_support_ticket, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         fontIranSans = FontManager.getTypeface(getContext(), FontManager.IRANSANS_TEXTS);
 
-        txtNationalCode = (TextInputEditText) view.findViewById(R.id.txtNationalCode);
-        txtAddress = (TextInputEditText) view.findViewById(R.id.txtAddress);
-        txtPostalCode = (TextInputEditText) view.findViewById(R.id.txtPostalCode);
+        txtTitle = (TextInputEditText) view.findViewById(R.id.txtTitle);
+        txtMoreDetail = (TextInputEditText) view.findViewById(R.id.txtMoreDetail);
 
-        inputLayoutNationalCode = (TextInputLayout) view.findViewById(R.id.inputLayoutNationalCode);
-        inputLayoutAddress = (TextInputLayout) view.findViewById(R.id.inputLayoutAddress);
-        inputLayoutPostalCode = (TextInputLayout) view.findViewById(R.id.inputLayoutPostalCode);
+        inputLayoutTitle = (TextInputLayout) view.findViewById(R.id.inputLayoutTitle);
+        inputLayoutMoreDetail = (TextInputLayout) view.findViewById(R.id.inputLayoutMoreDetail);
+
 
         textView = (TextView) view.findViewById(R.id.textView);
-        btnNextStep = (Button) view.findViewById(R.id.btnNextStep);
+        btnSendSupportTicket = (Button) view.findViewById(R.id.btnSendSupportTicket);
 
-        spnProvinces = (Spinner) view.findViewById(R.id.spnProvinces);
-        spnCities = (Spinner) view.findViewById(R.id.spnCities);
+        FontManager.setFont(txtTitle, fontIranSans);
+        FontManager.setFont(txtMoreDetail, fontIranSans);
 
+        FontManager.setFont(inputLayoutTitle, fontIranSans);
+        FontManager.setFont(inputLayoutMoreDetail, fontIranSans);
 
-        spnProvinces.setAdapter(new ProvinceCitySpinnerAdapter(getContext(), R.layout.spinner_city_and_province_item, initProvinces()));
-        spnCities.setAdapter(new ProvinceCitySpinnerAdapter(getContext(), R.layout.spinner_city_and_province_item, initCities()));
-        spnProvinces.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String item = ((TextView) view.findViewById(R.id.txtProvinceCityName)).getText().toString();
-
-            }
-
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        spnCities.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String item = ((TextView) view.findViewById(R.id.txtProvinceCityName)).getText().toString();
-
-            }
-
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        FontManager.setFont(txtNationalCode, fontIranSans);
-        FontManager.setFont(txtAddress, fontIranSans);
-        FontManager.setFont(txtPostalCode, fontIranSans);
-
-        FontManager.setFont( inputLayoutNationalCode , fontIranSans);
-        FontManager.setFont( inputLayoutAddress , fontIranSans);
-        FontManager.setFont( inputLayoutPostalCode , fontIranSans);
 
         FontManager.setFont(textView, fontIranSans);
-        FontManager.setFont(btnNextStep, fontIranSans);
-        btnNextStep.setOnClickListener(new View.OnClickListener() {
+        FontManager.setFont(btnSendSupportTicket, fontIranSans);
+        spnTicketTypes = (Spinner) view.findViewById(R.id.spnTicketTypes);
+
+
+        spnTicketTypes.setAdapter(new ProvinceCitySpinnerAdapter(getContext(), R.layout.spinner_city_and_province_item, initTickets()));
+
+        spnTicketTypes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                String item = ((TextView) view.findViewById(R.id.txtProvinceCityName)).getText().toString();
+
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        btnSendSupportTicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onButtonPressed();
             }
         });
-
     }
 
-
-    private ArrayList<Province> initProvinces() {
-        ArrayList<Province> provinces = new ArrayList<>();
-        for (int i = 0; i < 100; i++)
-            provinces.add(new Province("استان #" + (i + 1)));
-        return provinces;
-    }
-
-
-    private ArrayList<City> initCities() {
+    private ArrayList<City> initTickets() {
         ArrayList<City> cities = new ArrayList<>();
         for (int i = 0; i < 100; i++)
-            cities.add(new City("شهر #" + (i + 1)));
+            cities.add(new City("تیکت پشتیبانی نوع #" + (i + 1)));
         return cities;
     }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed() {
         if (mListener != null) {
-            mListener.onRegistrationSecondStepInteraction();
+            mListener.onSendSupportTicketInteraction();
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof RegistrationFirstStepFragment.OnFragmentInteractionListener) {
+        if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
@@ -214,6 +182,6 @@ public class RegistrationSecondStepFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onRegistrationSecondStepInteraction();
+        void onSendSupportTicketInteraction();
     }
 }

@@ -6,9 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import layout.RegistrationFirstStepFragment;
 import layout.RegistrationSecondStepFragment;
+import layout.SendSupportTicketFragment;
 
 public class MainActivity extends AppCompatActivity implements RegistrationFirstStepFragment.OnFragmentInteractionListener,
-        RegistrationSecondStepFragment.OnFragmentInteractionListener {
+        RegistrationSecondStepFragment.OnFragmentInteractionListener , SendSupportTicketFragment.OnFragmentInteractionListener{
 
 
     @Override
@@ -48,6 +49,13 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
     @Override
     public void onRegistrationSecondStepInteraction() {
+        FragmentTransaction ft =  getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.slide_out_right, R.anim.slide_in_left);
+        ft.replace(R.id.content, new SendSupportTicketFragment()).commit();
+    }
+
+    @Override
+    public void onSendSupportTicketInteraction() {
 
     }
 }

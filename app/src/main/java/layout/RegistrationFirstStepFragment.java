@@ -45,12 +45,14 @@ public class RegistrationFirstStepFragment extends Fragment {
     private TextInputEditText txtEmail;
     private TextInputEditText txtUsername;
     private TextInputEditText txtPassword;
+    private TextInputEditText txtConfirmPassword;
 
     private TextInputLayout inputLayoutNameAndFamily;
     private TextInputLayout inputLayoutPhone;
     private TextInputLayout inputLayoutEmail;
     private TextInputLayout inputLayoutUsername;
     private TextInputLayout inputLayoutPassword;
+    private TextInputLayout inputLayoutConfirmPassword;
 
     private TextView textView;
 
@@ -104,12 +106,14 @@ public class RegistrationFirstStepFragment extends Fragment {
         txtEmail = (TextInputEditText) view.findViewById(R.id.txtEmail);
         txtUsername = (TextInputEditText) view.findViewById(R.id.txtUsername);
         txtPassword = (TextInputEditText) view.findViewById(R.id.txtPassword);
+        txtConfirmPassword = (TextInputEditText) view.findViewById(R.id.txtConfirmPassword);
 
         inputLayoutNameAndFamily = (TextInputLayout) view.findViewById(R.id.inputLayoutNameAndFamily);
         inputLayoutPhone = (TextInputLayout) view.findViewById(R.id.inputLayoutPhone);
         inputLayoutEmail = (TextInputLayout) view.findViewById(R.id.inputLayoutEmail);
         inputLayoutUsername = (TextInputLayout) view.findViewById(R.id.inputLayoutUsername);
         inputLayoutPassword = (TextInputLayout) view.findViewById(R.id.inputLayoutPassword);
+        inputLayoutConfirmPassword = (TextInputLayout) view.findViewById(R.id.inputLayoutConfirmPassword);
 
 
         textView = (TextView) view.findViewById(R.id.textView);
@@ -120,12 +124,14 @@ public class RegistrationFirstStepFragment extends Fragment {
         FontManager.setFont(txtEmail, fontIranSans);
         FontManager.setFont(txtUsername, fontIranSans);
         FontManager.setFont(txtPassword, fontIranSans);
+        FontManager.setFont(txtConfirmPassword, fontIranSans);
 
         FontManager.setFont(inputLayoutNameAndFamily, fontIranSans);
         FontManager.setFont(inputLayoutPhone, fontIranSans);
         FontManager.setFont(inputLayoutEmail, fontIranSans);
         FontManager.setFont(inputLayoutUsername, fontIranSans);
         FontManager.setFont(inputLayoutPassword, fontIranSans);
+        FontManager.setFont(inputLayoutConfirmPassword, fontIranSans);
 
 
         FontManager.setFont(textView, fontIranSans);
