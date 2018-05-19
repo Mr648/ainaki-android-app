@@ -12,6 +12,8 @@
     <string name="hint_password_confirm">تکرار رمز عبور</string>
     <string name="hint_username">نام کاربری</string>
     <string name="hint_national_code">کد ملی</string>
+    <string name="hint_address">آدرس</string>
+    <string name="hint_postal_code">کد پستی</string>
     <string name="hint_email">ایمیل</string>
     <string name="label_confirm">تایید</string>
     <string name="label_ssfa">SSFA</string>
