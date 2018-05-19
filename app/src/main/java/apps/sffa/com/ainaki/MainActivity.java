@@ -1,19 +1,32 @@
 package apps.sffa.com.ainaki;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+import layout.RegistrationFirstStepFragment;
+import layout.RegistrationSecondStepFragment;
+
+public class MainActivity extends AppCompatActivity implements RegistrationFirstStepFragment.OnFragmentInteractionListener,
+        RegistrationSecondStepFragment.OnFragmentInteractionListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_2nd_step);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        setContentView(R.layout.activity_main);
+
+
+        FragmentTransaction ft =  getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+        ft.add(R.id.content, new RegistrationFirstStepFragment()).commit();
+//        getSupportActionBar().setDisplayShowTitleEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
     }
+
 
     /**
      * A native method that is implemented by the 'native-lib' native library,
@@ -21,8 +34,20 @@ public class MainActivity extends AppCompatActivity {
      */
     public native String stringFromJNI();
 
-    // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
+    }
+
+
+    @Override
+    public void onRegistrationFirstStepInteraction() {
+        FragmentTransaction ft =  getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+        ft.replace(R.id.content, new RegistrationSecondStepFragment()).commit();
+    }
+
+    @Override
+    public void onRegistrationSecondStepInteraction() {
+
     }
 }
