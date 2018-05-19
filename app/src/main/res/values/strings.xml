@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Ainaki</string>
     <string name="label_register">ثبت‌نام</string>
+    <string name="label_provinces">انتخاب استان</string>
+    <string name="label_cities">انتخاب شهرستان</string>
     <string name="label_login">ورود</string>
     <string name="hint_name">نام</string>
     <string name="hint_family">نام خانوادگی</string>
@@ -10,6 +12,8 @@
     <string name="hint_password_confirm">تکرار رمز عبور</string>
     <string name="hint_username">نام کاربری</string>
     <string name="hint_national_code">کد ملی</string>
+    <string name="hint_address">آدرس</string>
+    <string name="hint_postal_code">کد پستی</string>
     <string name="hint_email">ایمیل</string>
     <string name="label_confirm">تایید</string>
     <string name="label_ssfa">SSFA</string>
@@ -46,4 +50,25 @@
     <string name="m_icon_report">report</string>
     <string name="m_icon_expand_more">expand_more</string>
     <string name="m_icon_expand_less">expand_less</string>
+
+    <array name="provinces">
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+        <item>sfsfsf</item>
+    </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
