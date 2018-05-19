@@ -191,7 +191,8 @@
 
                 <Button
                     android:id="@+id/btnNextStep"
-                    android:layout_width="wrap_content"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="@dimen/_120dp"
                     android:layout_height="@dimen/_64dp"
                     android:padding="@dimen/_8dp"
                     android:text="گام بعدی" />
