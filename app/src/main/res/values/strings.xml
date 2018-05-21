@@ -25,6 +25,7 @@
     <string name="text_forget_password">ایمیل خود را وارد نمایید، ما نحوه تغییر رمز عبور را برای شما ارسال خواهیم کرد</string>
     <string name="m_icon_star">star</string>
     <string name="label_faq">سوالات متداول</string>
+    <string name="label_favorite">علاقه مندی ها</string>
 
     <string name="m_icon_like">thumb_up_alt</string>
     <string name="m_icon_dislike">thumb_down_alt</string>
