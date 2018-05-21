@@ -1,4 +1,4 @@
-package apps.sffa.com.ainaki;
+package apps.sffa.com.ainaki.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 
 
+import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.FavoriteAdapter;
 import apps.sffa.com.ainaki.model.Favorite;
 

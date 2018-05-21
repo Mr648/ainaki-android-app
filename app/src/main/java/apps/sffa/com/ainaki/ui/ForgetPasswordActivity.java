@@ -1,8 +1,10 @@
-package apps.sffa.com.ainaki;
+package apps.sffa.com.ainaki.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import apps.sffa.com.ainaki.R;
 
 /**
  * Created by Diako on 15/05/2018.

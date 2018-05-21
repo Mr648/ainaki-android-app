@@ -7,14 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import apps.sffa.com.ainaki.R;
-
 import apps.sffa.com.ainaki.model.Favorite;
+import apps.sffa.com.ainaki.model.Lens;
 import apps.sffa.com.ainaki.util.FontManager;
 
 
@@ -22,13 +21,14 @@ import apps.sffa.com.ainaki.util.FontManager;
  * Created by mr-code on 5/6/2018.
  */
 
-public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
+public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
 
-    private static  Context mContext;
-    private ArrayList<Favorite> mItems;
-Typeface fontMaterialIcons;
-    public FavoriteAdapter(Context mContext,
-                           ArrayList<Favorite> mItems) {
+    private static Context mContext;
+    private ArrayList<Lens> mItems;
+    Typeface fontMaterialIcons;
+
+    public LensAdapter(Context mContext,
+                       ArrayList<Lens> mItems) {
 
         this.mItems = mItems;
         this.mContext = mContext;
@@ -51,16 +51,14 @@ Typeface fontMaterialIcons;
         public ViewHolder(View view) {
             super(view);
             this.view = view;
-            imgFavorite= (ImageView) view.findViewById(R.id.imgFavorite);
-            imgShare= (ImageView) view.findViewById(R.id.imgShare);
-            imgBuy= (ImageView) view.findViewById(R.id.imgBuy);
-            imgLike= (ImageView) view.findViewById(R.id.imgLike);
-            imgDislike= (ImageView) view.findViewById(R.id.imgDislike);
-            txtProductName= (TextView) view.findViewById(R.id.txtProductName);
-            txtType= (TextView) view.findViewById(R.id.txtType);
-            txtPrice= (TextView) view.findViewById(R.id.txtPrice);
-
-
+            imgFavorite = (ImageView) view.findViewById(R.id.imgFavorite);
+            imgShare = (ImageView) view.findViewById(R.id.imgShare);
+            imgBuy = (ImageView) view.findViewById(R.id.imgBuy);
+            imgLike = (ImageView) view.findViewById(R.id.imgLike);
+            imgDislike = (ImageView) view.findViewById(R.id.imgDislike);
+            txtProductName = (TextView) view.findViewById(R.id.txtProductName);
+            txtType = (TextView) view.findViewById(R.id.txtType);
+            txtPrice = (TextView) view.findViewById(R.id.txtPrice);
 
 
         }
@@ -68,7 +66,6 @@ Typeface fontMaterialIcons;
         public View getView() {
             return view;
         }
-
 
 
         public TextView getTxtProductName() {

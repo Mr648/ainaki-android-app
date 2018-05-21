@@ -1,4 +1,4 @@
-package apps.sffa.com.ainaki;
+package apps.sffa.com.ainaki.ui;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.util.FontManager;
 
 /**

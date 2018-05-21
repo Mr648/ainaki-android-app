@@ -35,7 +35,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_faq"
+                    android:text="@string/label_lens_list"
                     android:textColor="@color/colorGray"
                     android:textSize="@dimen/_32sp" />
             </LinearLayout>
@@ -51,7 +51,7 @@
 
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recFAQ"
+            android:id="@+id/recLensList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
