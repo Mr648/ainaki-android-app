@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Ainaki</string>
     <string name="btn_send">ارسال</string>
+    <string name="btn_more">همه</string>
     <string name="label_register">ثبت‌نام</string>
     <string name="label_support_ticket">ارسال تیکت پشتیبانی</string>
     <string name="label_provinces">انتخاب استان</string>

@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ Typeface fontMaterialIcons;
             imgBuy= (ImageView) view.findViewById(R.id.imgBuy);
             imgLike= (ImageView) view.findViewById(R.id.imgLike);
             imgDislike= (ImageView) view.findViewById(R.id.imgDislike);
-            txtProductName= (TextView) view.findViewById(R.id.txtProductName);
+            txtProductName= (TextView) view.findViewById(R.id.txtProductCategory);
             txtType= (TextView) view.findViewById(R.id.txtType);
             txtPrice= (TextView) view.findViewById(R.id.txtPrice);
 

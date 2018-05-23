@@ -15,12 +15,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import apps.sffa.com.ainaki.R;
+import layout.HomeFragment;
 import layout.RegistrationFirstStepFragment;
 import layout.RegistrationSecondStepFragment;
 import layout.SharePhotoFragment;
 
 public class MainActivity extends AppCompatActivity implements RegistrationFirstStepFragment.OnFragmentInteractionListener,
-        RegistrationSecondStepFragment.OnFragmentInteractionListener,SharePhotoFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+        RegistrationSecondStepFragment.OnFragmentInteractionListener,SharePhotoFragment.OnFragmentInteractionListener,HomeFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
 
     @Override
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.add(R.id.content, new SharePhotoFragment()).commit();
+        ft.add(R.id.content, new HomeFragment()).commit();
 //        getSupportActionBar().setDisplayShowTitleEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
     public void onRegistrationFirstStepInteraction() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.replace(R.id.content, new RegistrationSecondStepFragment()).commit();
+        ft.replace(R.id.content, new HomeFragment()).commit();
     }
 
     @Override

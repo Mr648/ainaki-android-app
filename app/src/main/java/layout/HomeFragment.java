@@ -3,12 +3,20 @@ package layout;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import apps.sffa.com.ainaki.R;
+import apps.sffa.com.ainaki.adapter.ProductCategoryAdapter;
+import apps.sffa.com.ainaki.adapter.ProductMiniItemAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +67,22 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
+
+    RecyclerView recProductCategories;
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        recProductCategories = (RecyclerView) view.findViewById(R.id.recProductCategories);
+        recProductCategories.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
+        ProductCategoryAdapter adapter = new ProductCategoryAdapter(getContext(),initProductItems());
+        recProductCategories.setAdapter(adapter);
+    }
+
+    private ArrayList<String> initProductItems(){
+        ArrayList<String> list = new ArrayList<String>();
+        list.addAll(Arrays.asList("Category #1","Category #2","Category #3","Category #4","Category #5","Category #6"));
+        return list;
     }
 
     @Override
