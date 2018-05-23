@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="عمومی">
+        <menu>
+            <item
+                android:id="@+id/action_list_glass"
+                android:title="@string/label_list_glass"
+                android:icon="@drawable/ic_telegram"/>
+            <item
+                android:id="@+id/action_list_lens"
+                android:title="@string/label_lens_list"
+                android:icon="@drawable/ic_remove_red_eye_black_18dp"/>
+            <item
+                android:id="@+id/action_list_accessories"
+                android:title="@string/label_accessory"
+                android:icon="@drawable/ic_shopping_basket_black_18dp"/>
+            <item
+                android:id="@+id/action_list_favorite"
+                android:title="@string/label_favorite"
+                android:icon="@drawable/ic_favorite_black_18dp"/>
+            <item
+                android:id="@+id/action_list_purchases"
+                android:title="@string/label_purchase"
+                android:icon="@drawable/ic_shopping_cart_black_18dp"/>
+
+
+        </menu>
+    </item>
+
+    <item android:title="سایر">
+        <menu>
+            <item
+                android:id="@+id/action_setting"
+                android:title="@string/label_setting"
+                android:icon="@drawable/ic_settings_black_18dp"/>
+            <item
+                android:id="@+id/action_aboutus"
+                android:title="@string/label_aboutus"
+                android:icon="@drawable/ic_telegram"/>
+            <item
+                android:id="@+id/action_faq"
+                android:title="@string/label_faq"
+                android:icon="@drawable/ic_help_black_18dp"/>
+            <item
+                android:id="@+id/action_ticket"
+                android:title="@string/label_ticket"
+                android:icon="@drawable/ic_bug_report_black_18dp"/>
+
+
+        </menu>
+    </item>
+
+
+</menu>
+

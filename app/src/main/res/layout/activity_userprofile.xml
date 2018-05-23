@@ -11,7 +11,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -20,15 +20,17 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="@dimen/_144dp"
-                    android:layout_height="@dimen/_144dp"
+                    android:layout_width="@dimen/_180dp"
+                    android:layout_height="@dimen/_180dp"
                     app:srcCompat="@mipmap/ic_launcher_round" />
 
-                <ImageView
+                <android.support.design.widget.FloatingActionButton
                     android:id="@+id/imageView2"
-                    android:layout_width="@dimen/_36dp"
-                    android:layout_height="@dimen/_36dp"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_8dp"
+                    app:elevation="1dp"
+                    app:srcCompat="@drawable/ic_camera_alt_black_18dp" />
             </RelativeLayout>
 
             <LinearLayout
@@ -45,7 +47,9 @@
                         android:id="@+id/txtEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginLeft="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_8dp"
                         android:layout_weight="1"
                         android:text="TextView" />
 
@@ -53,10 +57,12 @@
                         android:id="@+id/txtEmailTiltle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_8dp"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:text="TextView" />
+                        android:text="@string/hint_email" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -68,7 +74,9 @@
                         android:id="@+id/txtPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginLeft="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_8dp"
                         android:layout_weight="1"
                         android:text="TextView" />
 
@@ -76,10 +84,12 @@
                         android:id="@+id/txtPhoneTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_8dp"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:text="TextView" />
+                        android:text="@string/hint_phone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -91,7 +101,9 @@
                         android:id="@+id/txtCodMelli"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginLeft="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_8dp"
                         android:layout_weight="1"
                         android:text="TextView" />
 
@@ -99,10 +111,12 @@
                         android:id="@+id/txtCodeMelliTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_8dp"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:text="TextView" />
+                        android:text="@string/hint_national_code" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -114,10 +128,12 @@
                         android:id="@+id/txtGender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_8dp"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:text="TextView" />
+                        android:text="@string/label_gender" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -129,9 +145,11 @@
                         android:id="@+id/txtAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_8dp"
                         android:gravity="right"
-                        android:text="TextView" />
+                        android:text="@string/hint_address" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -142,21 +160,23 @@
 
                 <Button
                     android:id="@+id/btnExite"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:text="@string/label_edit_profile"  />
 
                 <Button
                     android:id="@+id/btnEdite"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:text="@string/label_log_out_profile" />
 
-            </LinearLayout>
+            </LinearLayout>1
 
         </LinearLayout>
     </ScrollView>

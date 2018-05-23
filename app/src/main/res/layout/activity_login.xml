@@ -91,8 +91,7 @@
                     android:layout_height="@dimen/_64dp"
                     android:padding="@dimen/_8dp"
                     android:text="ورود"
-                    android:textSize="@dimen/_18sp"
-                    />
+                    android:textSize="@dimen/_18sp" />
 
                 <TextView
                     android:id="@+id/txtForgetPassword"
