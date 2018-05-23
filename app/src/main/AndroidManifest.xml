@@ -9,18 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
+        <activity android:name=".ui.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ForgetPasswordActivity" >
+        <activity android:name=".ui.ForgetPasswordActivity" >
 
         </activity>
-        <activity android:name=".AboutUsActivity" >
+        <activity android:name=".ui.AboutUsActivity" >
         </activity>
-        <activity android:name=".SettingActivity" >
+        <activity android:name=".ui.SettingActivity" >
+
+        </activity>
+
+        <activity android:name=".ui.FAQActivity" >
+
+        </activity>
+
+        <activity android:name=".ui.FavoriteActivity" >
+
+        </activity>
+        <activity android:name=".ui.UserProfileActivity" >
+
+
 
         </activity>
     </application>

@@ -5,7 +5,8 @@
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#FFF3E0"
+    tools:context=".ui.MainActivity">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -50,7 +51,7 @@
                         android:ems="10"
                         android:gravity="right"
                         android:hint="@string/hint_email"
-                        android:textColorHint="@color/colorAccent" />
+                        android:textColorHint="@color/colorGray" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -68,7 +69,8 @@
                         android:layout_centerVertical="true"
                         android:ems="10"
                         android:gravity="right"
-                        android:hint="@string/hint_password" />
+                        android:hint="@string/hint_password"
+                        android:textColorHint="@color/colorBlack"/>
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -88,7 +90,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_64dp"
                     android:padding="@dimen/_8dp"
-                    android:text="ورود" />
+                    android:text="ورود"
+                    android:textSize="@dimen/_18sp" />
 
                 <TextView
                     android:id="@+id/txtForgetPassword"
@@ -96,7 +99,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="right|center_vertical"
-                    android:text="@string/label_forget_password" />
+                    android:text="@string/label_forget_password"
+                    android:textColor="@color/colorGray"/>
 
             </LinearLayout>
 
@@ -122,7 +126,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="right|center_vertical"
-                    android:text="@string/label_create_acoount" />
+                    android:text="@string/label_create_acoount"
+                    android:textColor="@color/colorGray"/>
 
 
             </LinearLayout>
@@ -158,6 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/label_login"
+                    android:textColor="@color/colorGray"
                     android:textSize="@dimen/_32sp" />
             </LinearLayout>
 
