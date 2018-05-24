@@ -5,7 +5,7 @@
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF3E0"
+    android:background="@color/colorWhite"
     tools:context=".ui.MainActivity">
 
     <android.support.v4.widget.NestedScrollView
@@ -50,8 +50,7 @@
                         android:layout_centerVertical="true"
                         android:ems="10"
                         android:gravity="right"
-                        android:hint="@string/hint_email"
-                        android:textColorHint="@color/colorGray" />
+                        android:hint="@string/hint_email" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -69,8 +68,7 @@
                         android:layout_centerVertical="true"
                         android:ems="10"
                         android:gravity="right"
-                        android:hint="@string/hint_password"
-                        android:textColorHint="@color/colorBlack"/>
+                        android:hint="@string/hint_password" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -100,7 +98,7 @@
                     android:layout_weight="1"
                     android:gravity="right|center_vertical"
                     android:text="@string/label_forget_password"
-                    android:textColor="@color/colorGray"/>
+                    android:textColor="@color/colorGray" />
 
             </LinearLayout>
 
@@ -127,7 +125,7 @@
                     android:layout_height="match_parent"
                     android:gravity="right|center_vertical"
                     android:text="@string/label_create_acoount"
-                    android:textColor="@color/colorGray"/>
+                    android:textColor="@color/colorGray" />
 
 
             </LinearLayout>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl">
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -25,12 +26,15 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8dp"
             android:text="TextView"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/_24sp" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+
             android:layout_margin="@dimen/_8dp"
             android:text="TextView" />
     </LinearLayout>
