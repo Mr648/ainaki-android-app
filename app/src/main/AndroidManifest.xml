@@ -12,11 +12,6 @@
         <activity android:name=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
-
-        </activity>
-        <activity android:name=".ui.FoldingActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
         <activity android:name=".ui.ForgetPasswordActivity" >
 
@@ -29,6 +24,12 @@
 
         <activity android:name=".ui.FAQActivity" >
 
+        </activity>
+        <activity android:name=".ui.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".ui.FavoriteActivity" >

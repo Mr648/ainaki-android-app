@@ -42,6 +42,15 @@
     <string name="label_aboutus">درباره ما</string>
     <string name="label_ticket">ارسال تیکت پشتیبانی</string>
     <string name="label_gender">جنسیت</string>
+    <string name="label_choose_face_size">اندازه صورت خود را انتخاب کنید:</string>
+    <string name="label_choose_face_shape">شکل صورت خود را انتخاب کنید:</string>
+    <string name="label_choose_face_color">انتخاب رنگ صورت:</string>
+    <string name="label_face_width">عریض</string>
+    <string name="label_face_normal">معمولی</string>
+    <string name="label_face_narrow">باریک</string>
+    <string name="label_face_circular">گرد</string>
+    <string name="label_face_square">مربعی</string>
+    <string name="label_face_triangular">مثلثی</string>
     <string name="nav_open">باز کردن منو</string>
     <string name="nav_close">بستن منو</string>
 
