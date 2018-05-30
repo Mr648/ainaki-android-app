@@ -77,6 +77,7 @@ public class HomeFragment extends Fragment {
         recProductCategories.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
         ProductCategoryAdapter adapter = new ProductCategoryAdapter(getContext(),initProductItems());
         recProductCategories.setAdapter(adapter);
+        recProductCategories.setNestedScrollingEnabled(false);
     }
 
     private ArrayList<String> initProductItems(){
