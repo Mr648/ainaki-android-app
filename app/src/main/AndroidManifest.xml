@@ -20,6 +20,10 @@
         <activity android:name=".ui.ForgetPasswordActivity" >
 
         </activity>
+
+        <activity android:name=".ui.SecendStepLoginAcivity" >
+
+        </activity>
         <activity android:name=".ui.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

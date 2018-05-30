@@ -43,6 +43,7 @@
     <string name="label_aboutus">درباره ما</string>
     <string name="label_ticket">ارسال تیکت پشتیبانی</string>
     <string name="label_gender">جنسیت</string>
+    <string name="label_birth_date">تاریخ تولد</string>
     <string name="label_choose_face_size">اندازه صورت خود را انتخاب کنید:</string>
     <string name="label_choose_face_shape">شکل صورت خود را انتخاب کنید:</string>
     <string name="label_choose_face_color">انتخاب رنگ صورت:</string>

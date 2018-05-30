@@ -1,5 +1,6 @@
 package apps.sffa.com.ainaki.ui;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -77,14 +78,14 @@ public class LoginActivity extends AppCompatActivity {
 
         setFont();
 //        inputLayoutEmail.setErrorEnabled(true);
-//        inputLayoutPassword.setErrorEnabled(true);
-
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                submitForm();
-//            }
-//        });
+     //  inputLayoutPassword.setErrorEnabled(true);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               startActivity(new Intent(LoginActivity.this, SecendStepLoginAcivity.class));
+               finish();
+           }
+       });
 
     }
 
