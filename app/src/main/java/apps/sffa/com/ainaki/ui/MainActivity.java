@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +16,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import apps.sffa.com.ainaki.R;
+import layout.CircularProductViewerFragment;
+import layout.GenderFragment;
+import layout.HomeFragment;
 import layout.RegistrationFirstStepFragment;
 import layout.RegistrationSecondStepFragment;
 import layout.SharePhotoFragment;
 
 public class MainActivity extends AppCompatActivity implements RegistrationFirstStepFragment.OnFragmentInteractionListener,
-        RegistrationSecondStepFragment.OnFragmentInteractionListener,SharePhotoFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+        RegistrationSecondStepFragment.OnFragmentInteractionListener, SharePhotoFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
 
     @Override
@@ -58,9 +62,8 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.nav_open, R.string.nav_close);
-        toggle.setDrawerIndicatorEnabled(true);
         drawer.setDrawerListener(toggle);
-
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
         toggle.syncState();
 
 
@@ -70,11 +73,11 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
             navigationView.setLayoutDirection(NavigationView.LAYOUT_DIRECTION_RTL);
         }
         navigationView.setNavigationItemSelectedListener(this);
-
+        disableNavigationViewScrollbars(navigationView);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.add(R.id.content, new SharePhotoFragment()).commit();
+        ft.add(R.id.content, new HomeFragment()).commit();
 //        getSupportActionBar().setDisplayShowTitleEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -82,6 +85,14 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
     }
 
+    private void disableNavigationViewScrollbars(NavigationView navigationView) {
+        if (navigationView != null) {
+            NavigationMenuView navigationMenuView = (NavigationMenuView) navigationView.getChildAt(0);
+            if (navigationMenuView != null) {
+                navigationMenuView.setVerticalScrollBarEnabled(false);
+            }
+        }
+    }
 
     /**
      * A native method that is implemented by the 'native-lib' native library,
@@ -98,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
     public void onRegistrationFirstStepInteraction() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.replace(R.id.content, new RegistrationSecondStepFragment()).commit();
+        ft.replace(R.id.content, new HomeFragment()).commit();
     }
 
     @Override
@@ -109,9 +120,15 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
 
 
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override

@@ -152,6 +152,13 @@ public class RegistrationSecondStepFragment extends Fragment {
 
         FontManager.setFont(textView, fontIranSans);
         FontManager.setFont(btnNextStep, fontIranSans);
+        btnNextStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onButtonPressed();
+            }
+        });
+
     }
 
 

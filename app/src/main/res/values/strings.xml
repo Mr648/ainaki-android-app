@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Ainaki</string>
+    <string name="btn_send">ارسال</string>
+    <string name="btn_more">همه</string>
     <string name="label_register">ثبت‌نام</string>
+    <string name="label_support_ticket">ارسال تیکت پشتیبانی</string>
     <string name="label_provinces">انتخاب استان</string>
+    <string name="label_support_ticket_type">انتخاب نوع تیکت</string>
     <string name="label_cities">انتخاب شهرستان</string>
     <string name="label_login">ورود</string>
     <string name="hint_name">نام</string>
@@ -15,6 +19,8 @@
     <string name="hint_address">آدرس</string>
     <string name="hint_postal_code">کد پستی</string>
     <string name="hint_email">ایمیل</string>
+    <string name="hint_title">عنوان</string>
+    <string name="hint_more_detail">توضیحات تکمیلی</string>
     <string name="label_confirm">تایید</string>
     <string name="label_ssfa">SSFA</string>
     <string name="label_company">Application Design Studio</string>
@@ -22,6 +28,7 @@
     <string name="label_forget_password_normal">فراموشی رمز عبور</string>
     <string name="label_create_acoount">آیا حساب کاربری ندارید؟</string>
     <string name="label_ainaki">عینکی</string>
+    <string name="label_phone">شماره تلفن خود را وارد کنید</string>
     <string name="text_forget_password">ایمیل خود را وارد نمایید، ما نحوه تغییر رمز عبور را برای شما ارسال خواهیم کرد</string>
     <string name="m_icon_star">star</string>
     <string name="label_faq">سوالات متداول</string>
@@ -36,6 +43,7 @@
     <string name="label_aboutus">درباره ما</string>
     <string name="label_ticket">ارسال تیکت پشتیبانی</string>
     <string name="label_gender">جنسیت</string>
+    <string name="label_birth_date">تاریخ تولد</string>
     <string name="label_choose_face_size">اندازه صورت خود را انتخاب کنید:</string>
     <string name="label_choose_face_shape">شکل صورت خود را انتخاب کنید:</string>
     <string name="label_choose_face_color">انتخاب رنگ صورت:</string>
@@ -44,6 +52,9 @@
     <string name="label_face_narrow">باریک</string>
     <string name="label_face_circular">گرد</string>
     <string name="label_face_square">مربعی</string>
+    <string name="label_lens">لنز</string>
+    <string name="label_sunglass">آفتابی</string>
+    <string name="label_eyeglass">طبی</string>
     <string name="label_face_triangular">مثلثی</string>
     <string name="nav_open">باز کردن منو</string>
     <string name="nav_close">بستن منو</string>
@@ -57,6 +68,7 @@
 
     <string name="m_icon_telegram">w</string>
     <string name="m_icon_instagram">x</string>
+
     <string name="m_icon_location">place</string>
     <string name="m_icon_share">share</string>
     <string name="m_icon_public">public</string>
@@ -92,6 +104,11 @@
         <item>sfsfsf</item>
         <item>sfsfsf</item>
     </array>
+
+    <string name="error_user_email_empty">لطفا ایمیل خود را وارد نمایید</string>
+    <string name="error_user_email_invalid">ایمیل وارد شده نامعتبر میباشد</string>
+    <string name="error_user_password_empty">لطفا رمزعبور خود را وارد نمایید</string>
+    <string name="error_user_password_invalid">رمزعبور وارد شده نادرست میباشد</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

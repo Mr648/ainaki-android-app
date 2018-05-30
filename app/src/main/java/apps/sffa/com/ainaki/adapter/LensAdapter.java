@@ -12,7 +12,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import apps.sffa.com.ainaki.R;
-import apps.sffa.com.ainaki.model.Favorite;
 import apps.sffa.com.ainaki.model.Lens;
 import apps.sffa.com.ainaki.util.FontManager;
 
@@ -56,7 +55,7 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
             imgBuy = (ImageView) view.findViewById(R.id.imgBuy);
             imgLike = (ImageView) view.findViewById(R.id.imgLike);
             imgDislike = (ImageView) view.findViewById(R.id.imgDislike);
-            txtProductName = (TextView) view.findViewById(R.id.txtProductName);
+            txtProductName = (TextView) view.findViewById(R.id.txtProductCategory);
             txtType = (TextView) view.findViewById(R.id.txtType);
             txtPrice = (TextView) view.findViewById(R.id.txtPrice);
 

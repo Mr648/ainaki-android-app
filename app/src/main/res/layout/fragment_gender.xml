@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <FrameLayout
+            android:id="@+id/draggableFrameWomen"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:layout_weight="33.33">
+
+            <ImageView
+                android:id="@+id/border2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:padding="12dp"
+                android:src="@drawable/shape_circle" />
+
+            <apps.sffa.com.ainaki.widget.BorderedImageView
+                android:id="@+id/cimage2"
+                android:layout_width="144sp"
+                android:layout_height="144sp"
+                android:layout_gravity="center_vertical|center_horizontal" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imgWomen"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_woman"
+                android:tint="@color/colorPrimaryDark" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/draggableFrameMen"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:layout_weight="33.33">
+
+            <ImageView
+                android:id="@+id/border3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                android:padding="12dp"
+                android:src="@drawable/shape_circle" />
+
+            <apps.sffa.com.ainaki.widget.BorderedImageView
+                android:id="@+id/cimage3"
+                android:layout_width="144sp"
+                android:layout_height="144sp"
+                android:layout_gravity="center_vertical|center_horizontal" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imgMen"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_man"
+                android:tint="@color/colorPrimaryDark" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/draggableFrameKids"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:layout_weight="33.33">
+
+            <ImageView
+                android:id="@+id/border1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:padding="12dp"
+                android:src="@drawable/shape_circle" />
+
+            <apps.sffa.com.ainaki.widget.BorderedImageView
+                android:id="@+id/cimage1"
+                android:layout_width="144sp"
+                android:layout_height="144sp"
+                android:layout_gravity="center_vertical|center_horizontal" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imgKids"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_kids"
+                android:tint="@color/colorPrimaryDark" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

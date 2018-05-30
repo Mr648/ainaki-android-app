@@ -41,6 +41,7 @@ public class FontManager {
         }
     }
     public static void markAsContainer(final View parentView, final Typeface typeface) {
+
         for (View childView: parentView.getTouchables()) {
             if (childView instanceof TextView) {
                 ((TextView)childView).setTypeface(typeface);
