@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import apps.sffa.com.ainaki.R;
+import layout.CircularProductViewerFragment;
+import layout.GenderFragment;
 import layout.HomeFragment;
 import layout.RegistrationFirstStepFragment;
 import layout.RegistrationSecondStepFragment;
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.add(R.id.content, new HomeFragment()).commit();
+        ft.add(R.id.content, new CircularProductViewerFragment()).commit();
 //        getSupportActionBar().setDisplayShowTitleEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
