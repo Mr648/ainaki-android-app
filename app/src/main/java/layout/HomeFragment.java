@@ -4,12 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,20 +71,42 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    RecyclerView recProductCategories;
+    private RecyclerView recProductCategories;
+    private FloatingActionButton fabGotoTop;
+    private ScrollView scrView;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         recProductCategories = (RecyclerView) view.findViewById(R.id.recProductCategories);
-        recProductCategories.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
-        ProductCategoryAdapter adapter = new ProductCategoryAdapter(getContext(),initProductItems());
+        fabGotoTop = (FloatingActionButton) view.findViewById(R.id.fabGotoTop);
+        scrView = (ScrollView) view.findViewById(R.id.scrView);
+
+        fabGotoTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                scrView.scrollTo(0, 0);
+                scrView.fullScroll(scrView.FOCUS_UP);
+            }
+        });
+        recProductCategories.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        ProductCategoryAdapter adapter = new ProductCategoryAdapter(getContext(), initProductItems());
         recProductCategories.setAdapter(adapter);
         recProductCategories.setNestedScrollingEnabled(false);
     }
 
-    private ArrayList<String> initProductItems(){
+    private ArrayList<String> initProductItems() {
         ArrayList<String> list = new ArrayList<String>();
-        list.addAll(Arrays.asList("Category #1","Category #2","Category #3","Category #4","Category #5","Category #6"));
+        list.addAll(Arrays.asList("Category #1", "Category #2", "Category #3", "Category #4", "Category #5", "Category #6"
+                , "Category #7"
+                , "Category #8"
+                , "Category #9"
+                , "Category #10"
+                , "Category #11"
+                , "Category #12"
+                , "Category #13"
+                , "Category #14"
+                , "Category #15"
+                , "Category #16"));
         return list;
     }
 
