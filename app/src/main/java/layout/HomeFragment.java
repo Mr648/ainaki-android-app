@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +20,7 @@ import java.util.Arrays;
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProductCategoryAdapter;
 import apps.sffa.com.ainaki.adapter.ProductMiniItemAdapter;
+import apps.sffa.com.ainaki.model.Gender;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,12 +33,10 @@ import apps.sffa.com.ainaki.adapter.ProductMiniItemAdapter;
 public class HomeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String GENDER = "GENDER";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Gender mGender;
 
     private OnFragmentInteractionListener mListener;
 
@@ -44,20 +44,11 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
+
+    public static HomeFragment newInstance(Gender gender) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(GENDER, gender.ordinal());
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,8 +57,7 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mGender = Gender.values()[getArguments().getInt(GENDER)];
         }
     }
 
@@ -77,6 +67,8 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        Toast.makeText(getContext(), "Gender "+mGender, Toast.LENGTH_SHORT).show();
         recProductCategories = (RecyclerView) view.findViewById(R.id.recProductCategories);
         fabGotoTop = (FloatingActionButton) view.findViewById(R.id.fabGotoTop);
         scrView = (ScrollView) view.findViewById(R.id.scrView);
@@ -109,11 +101,11 @@ public class HomeFragment extends Fragment {
                 , "Category #16"));
         return list;
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        // TODO Webservice here
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 

@@ -23,6 +23,7 @@ import java.util.Arrays;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProductCategoryAdapter;
+import apps.sffa.com.ainaki.model.Gender;
 import apps.sffa.com.ainaki.widget.BorderedImageView;
 
 
@@ -38,6 +39,7 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
 
     }
 
+    private GenderFragmentInteraction mListener;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -49,15 +51,16 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
         draggableFrameMen = (FrameLayout) view.findViewById(R.id.draggableFrameMen);
         draggableFrameWomen = (FrameLayout) view.findViewById(R.id.draggableFrameWomen);
 
-        ImgOnClickListener imgKidsListener = new ImgOnClickListener(KIDS);
-        ImgOnClickListener imgMenListener = new ImgOnClickListener(MEN);
-        ImgOnClickListener imgWomenListener = new ImgOnClickListener(WOMEN);
+        ImgOnClickListener imgListener = new ImgOnClickListener();
 
         imgMen.setColorFilter(getContext().getResources().getColor(R.color.colorPrimaryDark));
 
-        imgKids.setOnClickListener(imgKidsListener);
-        imgMen.setOnClickListener(imgMenListener);
-        imgWomen.setOnClickListener(imgWomenListener);
+        imgKids.setOnClickListener(imgListener);
+        imgKids.setTag(Gender.KIDS);
+        imgMen.setOnClickListener(imgListener);
+        imgMen.setTag(Gender.MEN);
+        imgWomen.setOnClickListener(imgListener);
+        imgWomen.setTag(Gender.WOMEN);
 
         animateImageViews(view);
 
@@ -105,10 +108,6 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
     private FrameLayout draggableFrameMen;
     private FrameLayout draggableFrameWomen;
 
-    private final String KIDS = "KIDS";
-    private final String MEN = "MEN";
-    private final String WOMEN = "WOMEN";
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -118,17 +117,11 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
 
 
     private class ImgOnClickListener implements View.OnClickListener {
-        private String gender;
-
-        ImgOnClickListener(String gender) {
-            this.gender = gender;
-        }
 
         @Override
         public void onClick(View view) {
-//            Intent intent = new Intent(MainActivity.this, StoreActivity.class);
-//            intent.putExtra("GENDER", gender);
-//            startActivity(intent);
+            ImageView img = (ImageView) view;
+            mListener.selectGender((Gender) img.getTag());
         }
     }
 
@@ -163,11 +156,22 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        if (context instanceof GenderFragment.GenderFragmentInteraction) {
+            mListener = (GenderFragment.GenderFragmentInteraction) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        mListener = null;
+    }
+
+    public interface GenderFragmentInteraction {
+        void selectGender(Gender gender);
     }
 
 
