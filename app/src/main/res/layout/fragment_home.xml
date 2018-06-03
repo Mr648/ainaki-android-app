@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:layoutDirection="rtl"
+    tools:context="layout.HomeFragment">
+
+    <ScrollView
+        android:id="@+id/scrView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/_16dp"
+                android:paddingTop="@dimen/_16dp"
+                app:layout_collapseMode="parallax"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_96dp"
+                    android:layout_height="@dimen/_96dp"
+                    android:layout_margin="@dimen/_8dp"
+                    android:gravity="center_vertical|center_horizontal">
+
+                    <TextView
+                        android:id="@+id/txtEyeGlass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgMedicalGlass"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/label_eyeglass"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/imgMedicalGlass"
+                        android:layout_width="@dimen/_56dp"
+                        android:layout_height="@dimen/_56dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:src="@drawable/ic_medicalglass"
+                        android:tint="@color/colorPrimaryDark" />
+
+                    <ImageView
+                        android:id="@+id/imgBorderMedicalGlass"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/shape_circle" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_96dp"
+                    android:layout_height="@dimen/_96dp"
+                    android:layout_margin="@dimen/_8dp"
+                    android:gravity="center_vertical|center_horizontal">
+
+                    <TextView
+                        android:id="@+id/txtSunglass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgSunglass"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/label_sunglass"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/imgSunglass"
+                        android:layout_width="@dimen/_56dp"
+                        android:layout_height="@dimen/_56dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:src="@drawable/ic_sunglass"
+                        android:tint="@color/colorPrimaryDark" />
+
+                    <ImageView
+                        android:id="@+id/imgBorderSunglass"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/shape_circle" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_96dp"
+                    android:layout_height="@dimen/_96dp"
+                    android:layout_margin="@dimen/_8dp"
+                    android:gravity="center_vertical|center_horizontal">
+
+                    <TextView
+                        android:id="@+id/txtLens"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgLens"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/label_lens"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/imgLens"
+                        android:layout_width="@dimen/_56dp"
+                        android:layout_height="@dimen/_56dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:src="@drawable/ic_lense"
+                        android:tint="@color/colorPrimaryDark" />
+
+                    <ImageView
+                        android:id="@+id/imgBorderLens"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/shape_circle" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recProductCategories"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabGotoTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginLeft="@dimen/_16dp"
+        android:src="@drawable/ic_keyboard_arrow_up_black_18dp"
+        android:tint="@color/colorWhite" />
+</RelativeLayout>
