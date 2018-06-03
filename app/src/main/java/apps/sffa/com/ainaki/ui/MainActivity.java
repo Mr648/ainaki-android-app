@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import apps.sffa.com.ainaki.R;
+import apps.sffa.com.ainaki.model.Gender;
 import layout.CircularProductViewerFragment;
 import layout.GenderFragment;
 import layout.HomeFragment;
@@ -24,7 +25,8 @@ import layout.RegistrationSecondStepFragment;
 import layout.SharePhotoFragment;
 
 public class MainActivity extends AppCompatActivity implements RegistrationFirstStepFragment.OnFragmentInteractionListener,
-        RegistrationSecondStepFragment.OnFragmentInteractionListener, SharePhotoFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+        RegistrationSecondStepFragment.OnFragmentInteractionListener, SharePhotoFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener
+, GenderFragment.GenderFragmentInteraction{
     private Toolbar toolbar;
 
     @Override
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.add(R.id.content, new HomeFragment()).commit();
+        ft.add(R.id.content, new GenderFragment()).commit();
 //        getSupportActionBar().setDisplayShowTitleEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -153,5 +155,14 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
     @Override
     public void onFragmentInteraction(Uri uri) {
         //
+    }
+
+    @Override
+    public void selectGender(Gender gender) {
+        // TODO go to home fragment and pass the gender
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+        ft.replace(R.id.content,  HomeFragment.newInstance(gender)).commit();
+
     }
 }
