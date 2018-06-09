@@ -31,6 +31,7 @@
                 app:layout_scrollFlags="scroll|enterAlways">
 
                 <RelativeLayout
+                    android:id="@+id/relEyeGlass"
                     android:layout_width="@dimen/_96dp"
                     android:layout_height="@dimen/_96dp"
                     android:layout_margin="@dimen/_8dp"
@@ -63,6 +64,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/relSunGlass"
                     android:layout_width="@dimen/_96dp"
                     android:layout_height="@dimen/_96dp"
                     android:layout_margin="@dimen/_8dp"
@@ -95,6 +97,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/relLens"
                     android:layout_width="@dimen/_96dp"
                     android:layout_height="@dimen/_96dp"
                     android:layout_margin="@dimen/_8dp"

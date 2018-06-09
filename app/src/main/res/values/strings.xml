@@ -55,6 +55,10 @@
     <string name="label_lens">لنز</string>
     <string name="label_sunglass">آفتابی</string>
     <string name="label_eyeglass">طبی</string>
+    <string name="btn_users_comment">نظرات کاربران</string>
+    <string name="btn_description">توضیحات</string>
+    <string name="btn_product_Specifications">مشخصات محصول</string>
+    <string name="label_currency">تومان</string>
     <string name="label_face_triangular">مثلثی</string>
     <string name="nav_open">باز کردن منو</string>
     <string name="nav_close">بستن منو</string>

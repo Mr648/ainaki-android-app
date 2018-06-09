@@ -1,16 +1,19 @@
 package layout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -21,15 +24,10 @@ import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProductCategoryAdapter;
 import apps.sffa.com.ainaki.adapter.ProductMiniItemAdapter;
 import apps.sffa.com.ainaki.model.Gender;
+import apps.sffa.com.ainaki.ui.LensListActivity;
+import apps.sffa.com.ainaki.ui.LoginActivity;
+import apps.sffa.com.ainaki.ui.SecendStepLoginAcivity;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link HomeFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,6 +62,9 @@ public class HomeFragment extends Fragment {
     private RecyclerView recProductCategories;
     private FloatingActionButton fabGotoTop;
     private ScrollView scrView;
+    private RelativeLayout relEyeGlass;
+    private RelativeLayout relSunGlass;
+    private RelativeLayout relLens;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -72,6 +73,29 @@ public class HomeFragment extends Fragment {
         recProductCategories = (RecyclerView) view.findViewById(R.id.recProductCategories);
         fabGotoTop = (FloatingActionButton) view.findViewById(R.id.fabGotoTop);
         scrView = (ScrollView) view.findViewById(R.id.scrView);
+        relEyeGlass = (RelativeLayout) view.findViewById(R.id.relEyeGlass);
+        relSunGlass = (RelativeLayout) view.findViewById(R.id.relSunGlass);
+        relLens = (RelativeLayout) view.findViewById(R.id.relLens);
+
+        relEyeGlass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),LensListActivity.class);
+                startActivity(intent);
+            }
+        });
+        relSunGlass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        relLens.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         fabGotoTop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +125,9 @@ public class HomeFragment extends Fragment {
                 , "Category #16"));
         return list;
     }
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -133,16 +160,7 @@ public class HomeFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

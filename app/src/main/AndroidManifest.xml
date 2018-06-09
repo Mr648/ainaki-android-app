@@ -21,7 +21,10 @@
         <activity android:name=".ui.ForgetPasswordActivity">
 
         </activity>
+        <activity android:name=".ui.LensListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
+        </activity>
         <activity android:name=".ui.SecendStepLoginAcivity">
 
         </activity>
@@ -33,6 +36,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".ui.AboutUsActivity"></activity>
         <activity android:name=".ui.SettingActivity">
@@ -51,8 +55,7 @@
         <activity android:name=".ui.FavoriteActivity">
 
         </activity>
-        <activity android:name=".ui.UserProfileActivity">
-
+        <activity android:name=".ui.ShowProductActivity">
 
         </activity>
     </application>
