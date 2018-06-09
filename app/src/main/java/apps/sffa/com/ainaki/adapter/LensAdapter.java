@@ -1,15 +1,24 @@
 package apps.sffa.com.ainaki.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.os.Handler;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.model.Lens;
@@ -38,28 +47,55 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
 
         private final View view;
         private final ImageView imgFavorite;
-        private final ImageView imgShare;
         private final ImageView imgBuy;
-        private final ImageView imgLike;
-        private final ImageView imgDislike;
         private final TextView txtProductName;
         private final TextView txtType;
         private final TextView txtPrice;
 
+        private final AppCompatImageView imgFace;
+        private final AppCompatImageView imgSmile;
+        private final AppCompatImageView imgLeftEye;
+        private final AppCompatImageView imgRightEye;
 
         public ViewHolder(View view) {
             super(view);
             this.view = view;
             imgFavorite = (ImageView) view.findViewById(R.id.imgFavorite);
-            imgShare = (ImageView) view.findViewById(R.id.imgShare);
             imgBuy = (ImageView) view.findViewById(R.id.imgBuy);
-            imgLike = (ImageView) view.findViewById(R.id.imgLike);
-            imgDislike = (ImageView) view.findViewById(R.id.imgDislike);
             txtProductName = (TextView) view.findViewById(R.id.txtProductCategory);
             txtType = (TextView) view.findViewById(R.id.txtType);
             txtPrice = (TextView) view.findViewById(R.id.txtPrice);
 
+            imgFace = (AppCompatImageView) view.findViewById(R.id.imgFace );
+            imgSmile = (AppCompatImageView) view.findViewById(R.id.imgSmile );
+            imgLeftEye = (AppCompatImageView) view.findViewById(R.id.imgLeftEye );
+            imgRightEye = (AppCompatImageView) view.findViewById(R.id.imgRightEye );
 
+
+            Timer timer = new Timer();
+            final Handler handler = new Handler();
+            final TimerTask timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                   handler.post(new Runnable() {
+                       @Override
+                       public void run() {
+                           imgLeftEye.setColorFilter( getRandomColor() );
+                           imgRightEye.setColorFilter( getRandomColor() );
+                       }
+                   });
+                }
+            };
+            timer.scheduleAtFixedRate(timerTask,150,150);
+
+
+        }
+
+        private int getRandomColor(){
+            return Color.argb(255,
+                    ((int)(Math.random()*255)),
+                    ((int)(Math.random()*255)),
+                    ((int)(Math.random()*255)));
         }
 
         public View getView() {
