@@ -31,7 +31,7 @@ public class SecendStepLoginAcivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SecendStepLoginAcivity.this, MainActivity.class));
+                startActivity(new Intent(SecendStepLoginAcivity.this, GenderActivity.class));
                 finish();
             }
         });
@@ -41,7 +41,7 @@ public class SecendStepLoginAcivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //TODO ADD TEXT TO DATABASE
-                startActivity(new Intent(SecendStepLoginAcivity.this, MainActivity.class));
+                startActivity(new Intent(SecendStepLoginAcivity.this, GenderActivity.class));
                 finish();
             }
         });

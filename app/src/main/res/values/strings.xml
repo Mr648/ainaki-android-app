@@ -22,7 +22,7 @@
     <string name="hint_title">عنوان</string>
     <string name="hint_more_detail">توضیحات تکمیلی</string>
     <string name="label_confirm">تایید</string>
-    <string name="label_ssfa">SSFA</string>
+    <string name="label_sffa">SFFA</string>
     <string name="label_company">Application Design Studio</string>
     <string name="label_forget_password">فراموشی رمز عبور؟</string>
     <string name="label_forget_password_normal">فراموشی رمز عبور</string>
@@ -60,6 +60,8 @@
     <string name="btn_product_Specifications">مشخصات محصول</string>
     <string name="label_currency">تومان</string>
     <string name="label_face_triangular">مثلثی</string>
+    <string name="label_Phone_text">09xxxxxxxxx</string>
+    <string name="label_Phone_hit">جهت دریافت کد فعالسازی، شماره تلفن خود را وارد کنید</string>
     <string name="nav_open">باز کردن منو</string>
     <string name="nav_close">بستن منو</string>
 

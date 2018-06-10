@@ -24,7 +24,7 @@ public class LensListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lens_list);
         recLensList=(RecyclerView) findViewById(R.id.recLensList);
         recLensList.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
-
+recLensList.setNestedScrollingEnabled(false);
         recLensList.setAdapter(new LensAdapter(getApplicationContext(), initLenses()));
 
     }

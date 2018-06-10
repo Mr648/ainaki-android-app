@@ -28,12 +28,6 @@
                 android:padding="12dp"
                 android:src="@drawable/shape_circle" />
 
-            <apps.sffa.com.ainaki.widget.BorderedImageView
-                android:id="@+id/cimage2"
-                android:layout_width="144sp"
-                android:layout_height="144sp"
-                android:layout_gravity="center_vertical|center_horizontal" />
-
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/imgWomen"
                 android:layout_width="72dp"
@@ -42,6 +36,12 @@
                 android:layout_margin="8dp"
                 android:src="@drawable/ic_woman"
                 android:tint="@color/colorPrimaryDark" />
+
+            <apps.sffa.com.ainaki.widget.BorderedImageView
+                android:id="@+id/cimage2"
+                android:layout_width="144sp"
+                android:layout_height="144sp"
+                android:layout_gravity="center_vertical|center_horizontal" />
         </FrameLayout>
 
         <FrameLayout

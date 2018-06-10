@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -23,6 +24,7 @@ import java.util.TimerTask;
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.model.Lens;
 import apps.sffa.com.ainaki.util.FontManager;
+import apps.sffa.com.ainaki.widget.BorderedImageView;
 
 
 /**
@@ -52,12 +54,20 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
         private final TextView txtType;
         private final TextView txtPrice;
 
+
         private final AppCompatImageView imgFace;
         private final AppCompatImageView imgSmile;
         private final AppCompatImageView imgLeftEye;
         private final AppCompatImageView imgRightEye;
 
-        public ViewHolder(View view) {
+        private void animateImageViews(View view) {
+
+            Animation alphaAnimation = AnimationUtils.loadAnimation(mContext, R.anim.fadeinout);
+            view.findViewById(R.id.imgBorder).startAnimation(alphaAnimation);
+            view.findViewById(R.id.txtTest).startAnimation(alphaAnimation);
+
+        }
+        private ViewHolder(View view) {
             super(view);
             this.view = view;
             imgFavorite = (ImageView) view.findViewById(R.id.imgFavorite);
@@ -66,10 +76,10 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
             txtType = (TextView) view.findViewById(R.id.txtType);
             txtPrice = (TextView) view.findViewById(R.id.txtPrice);
 
-            imgFace = (AppCompatImageView) view.findViewById(R.id.imgFace );
-            imgSmile = (AppCompatImageView) view.findViewById(R.id.imgSmile );
-            imgLeftEye = (AppCompatImageView) view.findViewById(R.id.imgLeftEye );
-            imgRightEye = (AppCompatImageView) view.findViewById(R.id.imgRightEye );
+            imgFace = (AppCompatImageView) view.findViewById(R.id.imgFace);
+            imgSmile = (AppCompatImageView) view.findViewById(R.id.imgSmile);
+            imgLeftEye = (AppCompatImageView) view.findViewById(R.id.imgLeftEye);
+            imgRightEye = (AppCompatImageView) view.findViewById(R.id.imgRightEye);
 
 
             Timer timer = new Timer();
@@ -77,25 +87,25 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
             final TimerTask timerTask = new TimerTask() {
                 @Override
                 public void run() {
-                   handler.post(new Runnable() {
-                       @Override
-                       public void run() {
-                           imgLeftEye.setColorFilter( getRandomColor() );
-                           imgRightEye.setColorFilter( getRandomColor() );
-                       }
-                   });
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            imgLeftEye.setColorFilter(getRandomColor());
+                            imgRightEye.setColorFilter(getRandomColor());
+                        }
+                    });
                 }
             };
-            timer.scheduleAtFixedRate(timerTask,150,150);
-
+            timer.scheduleAtFixedRate(timerTask, 150, 150);
+            animateImageViews(view);
 
         }
 
-        private int getRandomColor(){
+        private int getRandomColor() {
             return Color.argb(255,
-                    ((int)(Math.random()*255)),
-                    ((int)(Math.random()*255)),
-                    ((int)(Math.random()*255)));
+                    ((int) (Math.random() * 255)),
+                    ((int) (Math.random() * 255)),
+                    ((int) (Math.random() * 255)));
         }
 
         public View getView() {
@@ -138,6 +148,7 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
         holder.getTxtPrice().setText("10000" + " تومان");
         holder.getTxtType().setText("آفتابی");
         holder.getTxtProductName().setText("Rayban DDR4");
+
     }
 
     @Override

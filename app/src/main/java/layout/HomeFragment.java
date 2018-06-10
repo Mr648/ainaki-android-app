@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,11 +21,8 @@ import java.util.Arrays;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProductCategoryAdapter;
-import apps.sffa.com.ainaki.adapter.ProductMiniItemAdapter;
 import apps.sffa.com.ainaki.model.Gender;
 import apps.sffa.com.ainaki.ui.LensListActivity;
-import apps.sffa.com.ainaki.ui.LoginActivity;
-import apps.sffa.com.ainaki.ui.SecendStepLoginAcivity;
 
 public class HomeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -69,7 +65,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        Toast.makeText(getContext(), "Gender "+mGender, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Gender " + mGender, Toast.LENGTH_SHORT).show();
         recProductCategories = (RecyclerView) view.findViewById(R.id.recProductCategories);
         fabGotoTop = (FloatingActionButton) view.findViewById(R.id.fabGotoTop);
         scrView = (ScrollView) view.findViewById(R.id.scrView);
@@ -80,7 +76,7 @@ public class HomeFragment extends Fragment {
         relEyeGlass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),LensListActivity.class);
+                Intent intent = new Intent(getActivity(), LensListActivity.class);
                 startActivity(intent);
             }
         });
@@ -127,7 +123,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -161,7 +156,7 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public interface OnFragmentInteractionListener {
+    public interface OnFragmentInteractionListener  {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }

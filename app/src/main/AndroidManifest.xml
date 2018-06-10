@@ -25,6 +25,11 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <activity android:name=".ui.GenderActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
         <activity android:name=".ui.SecendStepLoginAcivity">
 
         </activity>
