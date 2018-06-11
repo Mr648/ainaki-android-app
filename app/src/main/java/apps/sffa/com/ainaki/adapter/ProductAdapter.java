@@ -9,25 +9,32 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import apps.sffa.com.ainaki.R;
 
 import apps.sffa.com.ainaki.model.Favorite;
+import apps.sffa.com.ainaki.model.Product;
 import apps.sffa.com.ainaki.util.FontManager;
+import apps.sffa.com.ainaki.webservice.API;
 
 
 /**
  * Created by mr-code on 5/6/2018.
  */
 
-public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
-    private static  Context mContext;
-    private ArrayList<Favorite> mItems;
-Typeface fontMaterialIcons;
-    public FavoriteAdapter(Context mContext,
-                           ArrayList<Favorite> mItems) {
+    private static Context mContext;
+    private ArrayList<Product> mItems;
+    Typeface fontMaterialIcons;
+
+    public ProductAdapter(Context mContext,
+                          ArrayList<Product> mItems) {
 
         this.mItems = mItems;
         this.mContext = mContext;
@@ -42,6 +49,7 @@ Typeface fontMaterialIcons;
         private final ImageView imgBuy;
         private final ImageView imgLike;
         private final ImageView imgDislike;
+        private final ImageView imgProduct;
         private final TextView txtProductName;
         private final TextView txtType;
         private final TextView txtPrice;
@@ -50,25 +58,20 @@ Typeface fontMaterialIcons;
         public ViewHolder(View view) {
             super(view);
             this.view = view;
-            imgFavorite= (ImageView) view.findViewById(R.id.imgFavorite);
-            imgShare= (ImageView) view.findViewById(R.id.imgShare);
-            imgBuy= (ImageView) view.findViewById(R.id.imgBuy);
-            imgLike= (ImageView) view.findViewById(R.id.imgLike);
-            imgDislike= (ImageView) view.findViewById(R.id.imgDislike);
-            txtProductName= (TextView) view.findViewById(R.id.txtProductCategory);
-            txtType= (TextView) view.findViewById(R.id.txtType);
-            txtPrice= (TextView) view.findViewById(R.id.txtPrice);
-
-
-
-
+            imgFavorite = (ImageView) view.findViewById(R.id.imgFavorite);
+            imgShare = (ImageView) view.findViewById(R.id.imgShare);
+            imgBuy = (ImageView) view.findViewById(R.id.imgBuy);
+            imgLike = (ImageView) view.findViewById(R.id.imgLike);
+            imgDislike = (ImageView) view.findViewById(R.id.imgDislike);
+            imgProduct = (ImageView) view.findViewById(R.id.imgProduct);
+            txtProductName = (TextView) view.findViewById(R.id.txtProductCategory);
+            txtType = (TextView) view.findViewById(R.id.txtType);
+            txtPrice = (TextView) view.findViewById(R.id.txtPrice);
         }
 
         public View getView() {
             return view;
         }
-
-
 
         public TextView getTxtProductName() {
             return txtProductName;
@@ -76,6 +79,10 @@ Typeface fontMaterialIcons;
 
         public TextView getTxtType() {
             return txtType;
+        }
+
+        public ImageView getImgProduct() {
+            return imgProduct;
         }
 
         public TextView getTxtPrice() {
@@ -88,7 +95,7 @@ Typeface fontMaterialIcons;
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.favorite_item, viewGroup, false);
+                .inflate(R.layout.product_item, viewGroup, false);
 
         return new ViewHolder(v);
     }
@@ -102,9 +109,16 @@ Typeface fontMaterialIcons;
 //        FontManager.setFont(holder.getTxtLike(),fontMaterialIcons);
 //        FontManager.setFont(holder.getTxtDislike(),fontMaterialIcons);
 
-        holder.getTxtPrice().setText("10000" + " تومان");
-        holder.getTxtType().setText("آفتابی");
-        holder.getTxtProductName().setText("Rayban DDR4");
+        holder.getTxtPrice().setText(String.format("%.3f", mItems.get(position).getPrice()));
+
+        holder.getTxtProductName().setText( mItems.get(position).getName());
+
+        try {
+            Picasso.with(mContext).load(API.BASE_URL
+                    + URLDecoder.decode(mItems.get(position).getImage(),"UTF-8")).into(holder.getImgProduct());
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

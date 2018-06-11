@@ -85,7 +85,7 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.favorite_item, viewGroup, false);
+                .inflate(R.layout.product_item, viewGroup, false);
 
         return new ViewHolder(v);
     }

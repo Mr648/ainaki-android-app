@@ -47,6 +47,10 @@
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".ui.activity.AboutUsActivity">
@@ -61,13 +65,15 @@
 
         </activity>
 
+
         <activity
             android:name=".ui.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
-        <activity android:name=".ui.activity.FavoriteActivity">
+        <activity android:name=".ui.activity.ProductsListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
@@ -80,10 +86,6 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

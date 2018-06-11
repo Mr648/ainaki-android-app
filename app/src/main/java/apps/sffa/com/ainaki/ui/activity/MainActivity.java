@@ -1,5 +1,6 @@
 package apps.sffa.com.ainaki.ui.activity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,9 +36,16 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
         } else if (id == R.id.action_aboutus) {
         } else if (id == R.id.action_list_glass) {
+            Intent intent = new Intent(MainActivity.this, ProductsListActivity.class);
+            intent.putExtra("TITLE", "لیست عینک ها");
+            intent.putExtra("CATEGORY", "eyeglass");
+            intent.putExtra("FILTER", "all");
+            startActivity(intent);
         } else if (id == R.id.action_faq) {
         } else if (id == R.id.action_list_accessories) {
+
         } else if (id == R.id.action_list_lens) {
+
         } else if (id == R.id.action_list_purchases) {
         } else if (id == R.id.action_list_favorite) {
         } else if (id == R.id.action_ticket) {

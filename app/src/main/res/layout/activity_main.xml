@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
-    tools:context="apps.sffa.com.ainaki.activity.MainActivity"
+    tools:context="apps.sffa.com.ainaki.ui.MainActivity"
     tools:openDrawer="start">
 
     <include
