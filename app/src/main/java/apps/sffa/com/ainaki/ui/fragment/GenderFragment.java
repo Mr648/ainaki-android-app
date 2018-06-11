@@ -23,6 +23,7 @@ import java.util.Arrays;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProductCategoryAdapter;
+import apps.sffa.com.ainaki.model.Gender;
 import apps.sffa.com.ainaki.widget.BorderedImageView;
 
 
@@ -38,6 +39,8 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
 
     }
 
+
+    boolean animationIsRunning = false;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -60,12 +63,14 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
         imgWomen.setOnClickListener(imgListener);
         imgWomen.setTag(Gender.WOMEN);
 
-        animateImageViews(view);
+        if (!animationIsRunning) {
+            animateImageViews(view);
+            animationIsRunning = !animationIsRunning;
+        }
 
-
-        draggableFrameKids.setOnTouchListener(this);
-        draggableFrameMen.setOnTouchListener(this);
-        draggableFrameWomen.setOnTouchListener(this);
+//        draggableFrameKids.setOnTouchListener(this);
+//        draggableFrameMen.setOnTouchListener(this);
+//        draggableFrameWomen.setOnTouchListener(this);
     }
 
     float dX;
@@ -110,7 +115,7 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_gender, container, false);
+        return inflater.inflate(R.layout.activity_gender, container, false);
     }
 
 

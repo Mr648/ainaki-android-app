@@ -165,7 +165,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:layout_weight="1"
-                    android:text="@string/label_edit_profile"  />
+                    android:text="@string/label_edit_profile" />
 
                 <Button
                     android:id="@+id/btnEdite"
@@ -176,7 +176,8 @@
                     android:layout_weight="1"
                     android:text="@string/label_log_out_profile" />
 
-            </LinearLayout>1
+            </LinearLayout>
+            1
 
         </LinearLayout>
     </ScrollView>

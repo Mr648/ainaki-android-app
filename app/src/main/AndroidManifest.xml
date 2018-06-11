@@ -28,7 +28,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -42,7 +41,6 @@
         <activity android:name=".ui.activity.SecendStepLoginAcivity">
 
         </activity>
-
         <activity
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -81,10 +79,15 @@
 
         </activity>
 
+        <activity android:name=".ui.ShowProductActivity">
+
+        </activity>
+
         <activity
             android:name=".ui.activity.FaceDetectActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
+
 
         </activity>
     </application>

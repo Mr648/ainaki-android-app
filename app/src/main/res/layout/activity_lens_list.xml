@@ -5,7 +5,7 @@
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF3E0"
+    android:layoutDirection="rtl"
     tools:context=".ui.MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -18,27 +18,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="@null"
+            app:collapsedTitleGravity="right"
+            app:contentScrim="?attr/colorPrimary"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+            app:expandedTitleGravity="right"
             app:expandedTitleMarginEnd="30dp"
             app:expandedTitleMarginStart="30dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
+
             app:title="@string/app_name">
 
-            <LinearLayout
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/ToolBarStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:padding="@dimen/_18dp">
+                android:layout_height="?attr/actionBarSize"
+                app:collapseIcon="@mipmap/ic_launcher"
+                app:layout_collapseMode="parallax">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_lens_list"
-                    android:textColor="@color/colorGray"
-                    android:textSize="@dimen/_32sp" />
-            </LinearLayout>
+            </android.support.v7.widget.Toolbar>
 
 
         </android.support.design.widget.CollapsingToolbarLayout>

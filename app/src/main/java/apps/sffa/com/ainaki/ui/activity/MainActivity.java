@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
+import android.support.transition.TransitionManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -31,10 +33,22 @@ import apps.sffa.com.ainaki.ui.fragment.RegistrationFirstStepFragment;
 import apps.sffa.com.ainaki.ui.fragment.RegistrationSecondStepFragment;
 import apps.sffa.com.ainaki.ui.fragment.SharePhotoFragment;
 
-public class MainActivity extends AppCompatActivity implements RegistrationFirstStepFragment.OnFragmentInteractionListener,
-        RegistrationSecondStepFragment.OnFragmentInteractionListener, SharePhotoFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener
-, GenderFragment.GenderFragmentInteraction{
+public class MainActivity extends AppCompatActivity
+        implements RegistrationFirstStepFragment.OnFragmentInteractionListener,
+        RegistrationSecondStepFragment.OnFragmentInteractionListener,
+        SharePhotoFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener,
+        NavigationView.OnNavigationItemSelectedListener {
+
+
     private Toolbar toolbar;
+
+
+    private static class FragmentTags {
+        static final String GENDER_FRAGMENT = "GENDER_FRAGMENT";
+        static final String HOME_FRAGMENT = "HOME_FRAGMENT";
+        static final String SHARE_PHOTO_FRAGMENT = "SHARE_PHOTO_FRAGMENT";
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -62,24 +76,30 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
     }
 
     private DrawerLayout drawer;
+    private ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null && !extras.isEmpty()) {
+            selectGender((Gender) extras.get("GENDER"));
+        }
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.nav_open, R.string.nav_close);
+//toggle.setDrawerIndicatorEnabled(false);
         drawer.setDrawerListener(toggle);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
         toggle.syncState();
-
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navView);
 
@@ -89,9 +109,15 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
         navigationView.setNavigationItemSelectedListener(this);
         disableNavigationViewScrollbars(navigationView);
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.add(R.id.content, new GenderFragment()).commit();
+//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//
+//        /**
+//         *  TODO Don't Add addToBackStack Here.
+//         */
+//        ft.replace(R.id.content, new GenderFragment()).commit();
+
+
 //        getSupportActionBar().setDisplayShowTitleEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -112,10 +138,9 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native String stringFromJNI();
 
     static {
-        System.loadLibrary("native-lib");
+
         org.opencv.android.OpenCVLoader.initDebug();
         System.loadLibrary("faceDetection");
         /**
@@ -132,9 +157,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
     @Override
     public void onRegistrationFirstStepInteraction() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.replace(R.id.content, new HomeFragment()).commit();
+
     }
 
     @Override
@@ -163,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
             //TODO ADD SEARCH HERE
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -171,7 +195,11 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                getSupportFragmentManager().popBackStackImmediate();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -180,8 +208,8 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
         //
     }
 
-    @Override
-    public void selectGender(Gender gender) {
+
+    private void selectGender(Gender gender) {
         // TODO go to home fragment and pass the gender
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
