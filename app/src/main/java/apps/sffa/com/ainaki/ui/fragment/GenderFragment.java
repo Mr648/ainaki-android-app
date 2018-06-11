@@ -1,9 +1,13 @@
-package apps.sffa.com.ainaki.ui.fragment;
+package layout;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,7 +18,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import apps.sffa.com.ainaki.R;
+import apps.sffa.com.ainaki.adapter.ProductCategoryAdapter;
 import apps.sffa.com.ainaki.widget.BorderedImageView;
 
 
@@ -41,15 +49,16 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
         draggableFrameMen = (FrameLayout) view.findViewById(R.id.draggableFrameMen);
         draggableFrameWomen = (FrameLayout) view.findViewById(R.id.draggableFrameWomen);
 
-        ImgOnClickListener imgKidsListener = new ImgOnClickListener(KIDS);
-        ImgOnClickListener imgMenListener = new ImgOnClickListener(MEN);
-        ImgOnClickListener imgWomenListener = new ImgOnClickListener(WOMEN);
+        ImgOnClickListener imgListener = new ImgOnClickListener();
 
         imgMen.setColorFilter(getContext().getResources().getColor(R.color.colorPrimaryDark));
 
-        imgKids.setOnClickListener(imgKidsListener);
-        imgMen.setOnClickListener(imgMenListener);
-        imgWomen.setOnClickListener(imgWomenListener);
+        imgKids.setOnClickListener(imgListener);
+        imgKids.setTag(Gender.KIDS);
+        imgMen.setOnClickListener(imgListener);
+        imgMen.setTag(Gender.MEN);
+        imgWomen.setOnClickListener(imgListener);
+        imgWomen.setTag(Gender.WOMEN);
 
         animateImageViews(view);
 
@@ -97,10 +106,6 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
     private FrameLayout draggableFrameMen;
     private FrameLayout draggableFrameWomen;
 
-    private final String KIDS = "KIDS";
-    private final String MEN = "MEN";
-    private final String WOMEN = "WOMEN";
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -110,17 +115,11 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
 
 
     private class ImgOnClickListener implements View.OnClickListener {
-        private String gender;
-
-        ImgOnClickListener(String gender) {
-            this.gender = gender;
-        }
 
         @Override
         public void onClick(View view) {
-//            Intent intent = new Intent(MainActivity.this, StoreActivity.class);
-//            intent.putExtra("GENDER", gender);
-//            startActivity(intent);
+            ImageView img = (ImageView) view;
+            mListener.selectGender((Gender) img.getTag());
         }
     }
 
@@ -155,11 +154,22 @@ public class GenderFragment extends Fragment implements View.OnTouchListener {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        if (context instanceof GenderFragment.GenderFragmentInteraction) {
+            mListener = (GenderFragment.GenderFragmentInteraction) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        mListener = null;
+    }
+
+    public interface GenderFragmentInteraction {
+        void selectGender(Gender gender);
     }
 
 

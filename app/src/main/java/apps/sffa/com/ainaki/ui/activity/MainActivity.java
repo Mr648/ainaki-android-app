@@ -1,6 +1,5 @@
-package apps.sffa.com.ainaki.ui.activity;
+package apps.sffa.com.ainaki.ui;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,13 +19,21 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
 import apps.sffa.com.ainaki.R;
+import apps.sffa.com.ainaki.model.Gender;
+//import layout.CircularProductViewerFragment;
+//import layout.GenderFragment;
+//import layout.HomeFragment;
+//import layout.RegistrationFirstStepFragment;
+//import layout.RegistrationSecondStepFragment;
+//import layout.SharePhotoFragment;
 import apps.sffa.com.ainaki.ui.fragment.HomeFragment;
 import apps.sffa.com.ainaki.ui.fragment.RegistrationFirstStepFragment;
 import apps.sffa.com.ainaki.ui.fragment.RegistrationSecondStepFragment;
 import apps.sffa.com.ainaki.ui.fragment.SharePhotoFragment;
 
 public class MainActivity extends AppCompatActivity implements RegistrationFirstStepFragment.OnFragmentInteractionListener,
-        RegistrationSecondStepFragment.OnFragmentInteractionListener, SharePhotoFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+        RegistrationSecondStepFragment.OnFragmentInteractionListener, SharePhotoFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener
+, GenderFragment.GenderFragmentInteraction{
     private Toolbar toolbar;
 
     @Override
@@ -43,9 +50,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
             startActivity(intent);
         } else if (id == R.id.action_faq) {
         } else if (id == R.id.action_list_accessories) {
-
         } else if (id == R.id.action_list_lens) {
-
         } else if (id == R.id.action_list_purchases) {
         } else if (id == R.id.action_list_favorite) {
         } else if (id == R.id.action_ticket) {
@@ -86,9 +91,7 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-        ft.add(R.id.content, new HomeFragment()).commit();
-
-        Mat m = new Mat(100, 100, CvType.CV_8UC4);
+        ft.add(R.id.content, new GenderFragment()).commit();
 //        getSupportActionBar().setDisplayShowTitleEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -175,5 +178,14 @@ public class MainActivity extends AppCompatActivity implements RegistrationFirst
     @Override
     public void onFragmentInteraction(Uri uri) {
         //
+    }
+
+    @Override
+    public void selectGender(Gender gender) {
+        // TODO go to home fragment and pass the gender
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+        ft.replace(R.id.content,  HomeFragment.newInstance(gender)).commit();
+
     }
 }
