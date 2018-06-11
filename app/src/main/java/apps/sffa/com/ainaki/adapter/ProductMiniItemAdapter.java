@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.model.Product;
-import apps.sffa.com.ainaki.ui.ShowProductActivity;
+import apps.sffa.com.ainaki.ui.activity.ShowProductActivity;
 import apps.sffa.com.ainaki.util.FontManager;
 
 
