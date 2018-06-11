@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
 
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.nav_open, R.string.nav_close);
-
+//toggle.setDrawerIndicatorEnabled(false);
         drawer.setDrawerListener(toggle);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
         toggle.syncState();
@@ -104,8 +104,6 @@ public class MainActivity extends AppCompatActivity
 //         *  TODO Don't Add addToBackStack Here.
 //         */
 //        ft.replace(R.id.content, new GenderFragment()).commit();
-
-
 
 
 //        getSupportActionBar().setDisplayShowTitleEnabled(true);

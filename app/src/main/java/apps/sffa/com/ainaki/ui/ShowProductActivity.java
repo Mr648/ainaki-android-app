@@ -3,11 +3,14 @@ package apps.sffa.com.ainaki.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
@@ -29,6 +32,7 @@ public class ShowProductActivity extends AppCompatActivity{
 
 
     private ViewPager mPager;
+    private boolean like=false;
     private CircleIndicator indicator;
     private static int currentPage = 0;
     private static final List<Integer> images = Arrays.asList(
@@ -39,6 +43,9 @@ public class ShowProductActivity extends AppCompatActivity{
     );
 
     private TabHost TabHostWindow;
+    private ImageView imgFav;
+    private ImageView imgShareProduct;
+    private ImageView imgCamera;
 
 
     private ArrayList<Integer> imageList = new ArrayList<Integer>();
@@ -76,6 +83,9 @@ public class ShowProductActivity extends AppCompatActivity{
         initializeImageSlider();
 
         TabHostWindow = (TabHost)findViewById(R.id.tabHostWindow);
+        imgFav = (ImageView) findViewById(R.id.imgFav);
+        imgShareProduct = (ImageView) findViewById(R.id.imgShareProduct);
+        imgCamera = (ImageView) findViewById(R.id.imgCamera);
 
         TabHostWindow.setup();
 
@@ -96,6 +106,44 @@ public class ShowProductActivity extends AppCompatActivity{
         spec.setContent(R.id.tab3);
         spec.setIndicator("توضیحات");
         TabHostWindow.addTab(spec);
+
+
+        imgFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (!like){
+                    imgFav.setImageResource(R.drawable.ic_favorite_black_18dp);
+                    imgFav.setColorFilter((getResources().getColor(R.color.colorPrimary)));
+                    like=true;
+
+                }else {
+                    imgFav.setImageResource(R.drawable.ic_favorite_border_black_18dp);
+                    imgFav.setColorFilter(getResources().getColor(R.color.colorBlack));
+                    like=false;
+                }
+            }
+        });
+
+        imgShareProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "فریم و لنزهای متفاوت را در اپلیکیشن عینکی بر روی صورت خود امتحان کنید";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+            }
+        });
+
+        imgCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mintent=new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
+                startActivity(mintent);
+            }
+        });
 
     }
 
