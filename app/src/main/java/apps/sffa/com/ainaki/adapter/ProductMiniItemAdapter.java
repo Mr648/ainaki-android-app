@@ -1,7 +1,9 @@
 package apps.sffa.com.ainaki.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import apps.sffa.com.ainaki.R;
+import apps.sffa.com.ainaki.model.Product;
+import apps.sffa.com.ainaki.ui.ShowProductActivity;
 import apps.sffa.com.ainaki.util.FontManager;
 
 
@@ -22,11 +26,11 @@ import apps.sffa.com.ainaki.util.FontManager;
 public class ProductMiniItemAdapter extends RecyclerView.Adapter<ProductMiniItemAdapter.ViewHolder> {
 
     private static Context mContext;
-    private ArrayList<String> mItems;
+    private ArrayList<Product> mItems;
     Typeface fontIransans;
 
     public ProductMiniItemAdapter(Context mContext,
-                                  ArrayList<String> mItems) {
+                                  ArrayList<Product> mItems) {
 
         this.mItems = mItems;
         this.mContext = mContext;
@@ -37,6 +41,7 @@ public class ProductMiniItemAdapter extends RecyclerView.Adapter<ProductMiniItem
 
         private final View view;
         private final ImageView imgProduct;
+        private final CardView productItem;
         private final TextView txtProductName;
 
 
@@ -45,6 +50,11 @@ public class ProductMiniItemAdapter extends RecyclerView.Adapter<ProductMiniItem
             this.view = view;
             imgProduct = (ImageView) view.findViewById(R.id.imgProduct);
             txtProductName = (TextView) view.findViewById(R.id.txtProductCategory);
+            productItem = (CardView) view.findViewById(R.id.productItem);
+        }
+
+        public CardView getProductItem() {
+            return productItem;
         }
 
         public View getView() {
@@ -81,8 +91,18 @@ public class ProductMiniItemAdapter extends RecyclerView.Adapter<ProductMiniItem
 //        FontManager.setFont(holder.getTxtDislike(),fontMaterialIcons);
 
 
+        final Product currentProduct = mItems.get(position);
         holder.getImgProduct().setImageResource(drawables[((int) (Math.random() * 3))]);
-        holder.getTxtProductName().setText(mItems.get(position));
+        holder.getTxtProductName().setText(currentProduct.getName());
+        holder.getProductItem().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, ShowProductActivity.class);
+                intent.putExtra("PRODUCT_ID", currentProduct.getId());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     int[] drawables = {R.drawable.cleaner_1, R.drawable.cleaner_2, R.drawable.cleaner_3, R.drawable.eyeglass};

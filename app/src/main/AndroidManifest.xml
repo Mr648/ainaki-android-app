@@ -37,7 +37,10 @@
             android:name=".ui.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".ui.AboutUsActivity"></activity>
@@ -58,10 +61,7 @@
 
         </activity>
         <activity android:name=".ui.ShowProductActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
     </application>
 

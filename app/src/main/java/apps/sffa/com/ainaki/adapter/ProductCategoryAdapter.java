@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import apps.sffa.com.ainaki.R;
+import apps.sffa.com.ainaki.model.Product;
 import apps.sffa.com.ainaki.util.FontManager;
 
 
@@ -93,16 +94,24 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
         holder.getTxtProductCategory().setText(mItems.get(position));
 
 
-        holder.getRecProducts().setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL,false));
-        ProductMiniItemAdapter adapter = new ProductMiniItemAdapter(mContext,initProductItems());
+        holder.getRecProducts().setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
+        ProductMiniItemAdapter adapter = new ProductMiniItemAdapter(mContext, initProductItems());
         holder.getRecProducts().setAdapter(adapter);
 
     }
-    private ArrayList<String> initProductItems(){
-        ArrayList<String> list = new ArrayList<String>();
-        list.addAll(Arrays.asList("Product #1","Product #2","Product #3","Product #4","Product #5","Product #6"));
+
+    private ArrayList<Product> initProductItems() {
+        ArrayList<Product> list = new ArrayList<>();
+        list.addAll(Arrays.asList(
+                new Product(1, "Product #1"),
+                new Product(2, "Product #2"),
+                new Product(3, "Product #3"),
+                new Product(4, "Product #4"),
+                new Product(5, "Product #5"),
+                new Product(6, "Product #6")));
         return list;
     }
+
     @Override
     public int getItemCount() {
         return mItems.size();
