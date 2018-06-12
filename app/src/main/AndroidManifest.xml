@@ -8,6 +8,21 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <supports-screens android:resizeable="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:anyDensity="true" />
+
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,23 +31,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".ui.ForgetPasswordActivity">
-
-        </activity>
-        <activity android:name=".ui.LensListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".ui.GenderActivity"
+            android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
-        <activity android:name=".ui.SecendStepLoginAcivity">
+        <activity android:name=".ui.activity.ForgetPasswordActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.LensListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".ui.activity.GenderActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".ui.activity.SecendStepLoginAcivity">
 
         </activity>
         <activity android:name=".ui.UserProfileActivity">
@@ -40,33 +56,52 @@
         </activity>
 
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <activity android:name=".ui.AboutUsActivity"></activity>
-        <activity android:name=".ui.SettingActivity">
-
         </activity>
 
-        <activity android:name=".ui.FAQActivity">
+        <activity android:name=".ui.activity.AboutUsActivity">
 
         </activity>
+
+        <activity android:name=".ui.activity.SettingActivity">
+
+        </activity>
+
+        <activity android:name=".ui.activity.FAQActivity">
+
+        </activity>
+
+
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
-        <activity android:name=".ui.FavoriteActivity">
+        <activity android:name=".ui.activity.ProductsListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".ui.ShowProductActivity">
+
+        <activity android:name=".ui.activity.UserProfileActivity">
+
+        </activity>
+
+        <activity android:name=".ui.activity.ShowProductActivity">
+
+        </activity>
+
+        <activity
+            android:name=".ui.activity.FaceDetectActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+
 
         </activity>
     </application>
