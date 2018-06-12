@@ -70,7 +70,14 @@ public class LoginActivity extends AppCompatActivity {
 
        // btnForgetPassword = (Button) findViewById(R.id.btnForgetPassword);
         //btnRegister = (Button) findViewById(R.id.btnRegister);
-
+        txtPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus)
+                    inputLayoutPhone.setHint("");
+                else
+                    inputLayoutPhone.setHint("09xxxxxxxxx");
+            }
+        });
         txtActivtyTitle = (TextView) findViewById(R.id.txtActivtyTitle);
       //  txtDontHaveAccount = (TextView) findViewById(R.id.txtDontHaveAccount);
         btnLogin = (Button) findViewById(R.id.btnLogin);

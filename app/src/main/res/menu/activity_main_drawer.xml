@@ -30,6 +30,10 @@
     <item android:title="سایر">
         <menu>
             <item
+                android:id="@+id/action_profile"
+                android:title="@string/label_profile"
+                android:icon="@drawable/baseline_account_box_black_18dp"/>
+            <item
                 android:id="@+id/action_setting"
                 android:title="@string/label_setting"
                 android:icon="@drawable/ic_settings_black_18dp"/>

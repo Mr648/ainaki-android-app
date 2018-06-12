@@ -1,5 +1,6 @@
 package apps.sffa.com.ainaki.ui;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -47,7 +48,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_setting) {
-
+            Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+            startActivity(intent);
         } else if (id == R.id.action_aboutus) {
         } else if (id == R.id.action_list_glass) {
         } else if (id == R.id.action_faq) {
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_list_purchases) {
         } else if (id == R.id.action_list_favorite) {
         } else if (id == R.id.action_ticket) {
+        }else if (id == R.id.action_profile) {
+            Intent intent = new Intent(MainActivity.this,UserProfileActivity.class);
+            startActivity(intent);
         }
 
 

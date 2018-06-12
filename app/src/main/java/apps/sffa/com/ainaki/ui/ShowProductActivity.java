@@ -1,18 +1,22 @@
 package apps.sffa.com.ainaki.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -106,6 +110,28 @@ public class ShowProductActivity extends AppCompatActivity{
         spec.setContent(R.id.tab3);
         spec.setIndicator("توضیحات");
         TabHostWindow.addTab(spec);
+
+        for (int i = 0; i < TabHostWindow.getTabWidget().getChildCount(); i++) {
+
+            TextView tv = (TextView) TabHostWindow.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
+            tv.setTextSize(11);
+            tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        }
+
+            /*TabHostWindow.setOnTabChangedListener(new TabHost.OnTabChangeListener(){
+
+
+
+            @Override
+            public void onTabChanged(String tabId) {
+
+
+
+
+                int tab = TabHostWindow.getCurrentTab();
+                // When tab is selected
+                TabHostWindow.getTabWidget().getChildAt(TabHostWindow.getCurrentTab()).setBackgroundColor(getResources().getColor(R.color.colorTab));
+            }});*/
 
 
         imgFav.setOnClickListener(new View.OnClickListener() {

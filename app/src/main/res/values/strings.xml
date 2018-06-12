@@ -40,6 +40,7 @@
     <string name="label_purchase">خریدها</string>
     <string name="label_list_glass">لیست عینک ها</string>
     <string name="label_setting">تنظیمات</string>
+    <string name="label_profile">حساب کاربری</string>
     <string name="label_aboutus">درباره ما</string>
     <string name="label_ticket">ارسال تیکت پشتیبانی</string>
     <string name="label_gender">جنسیت</string>
@@ -57,7 +58,13 @@
     <string name="label_eyeglass">طبی</string>
     <string name="btn_users_comment">نظرات کاربران</string>
     <string name="btn_description">توضیحات</string>
-    <string name="btn_product_Specifications">مشخصات محصول</string>
+    <string name="btn_product_Specifications">باید به چشم ها ایمان داشت.
+چشم ها دنیایی دارند که در آن به راحتی میتوان راست و دروغ و زیر و بم حرف آدمها را فهمید.
+دنیایی که میتواند در لحظه برایمان تنفر یا ترحم را انتخاب کند.
+زندگی در چنین دنیایی زیباست چرا که شرط اول دلربایی چشمهایش هستند، اما در مقابل ترسناک هم هست چون همین چشم ها نقطه ضعف دلبستگی اند.
+میگم ترسناک چون در این دنیا نفس به نفست بسته است به چشم هایش و اگر به رویت بسته شوند مثل این که یکی گلوت تا سر حد مرگ فشار بده اما هنوز چندتایی نفس برایت باقی مانده باشد اما همین از چشم هایش بیفتی یعنی نه زندگی وجود داره و نه چند نفس آخری یعنی مرگ به معنای واقعی.
+قبل از ترسناک بودن گفتم که زیباست دوباره هم میگم که زیباست چون آخرین باری که به دنیای چشم هایش سفر کردم دختر بچه ای را دیدم که کهنه عشقی را به آغوش گرفته و بال بال میزند برای دوباره متولد شدنش، مطمئنم کهنه عشق در او متولد میشود حتی اگر من در آن نباشم، مطمئنم دنیای زیبایی چشم هایش را بند نخواهد آورد.
+مطمئنم چون به چشم هایش ایمان دارم.</string>
     <string name="label_currency">تومان</string>
     <string name="label_face_triangular">مثلثی</string>
     <string name="label_Phone_text">09xxxxxxxxx</string>

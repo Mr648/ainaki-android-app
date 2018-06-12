@@ -76,20 +76,22 @@ public class HomeFragment extends Fragment {
         relEyeGlass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LensListActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), LensListActivity.class);
+//                startActivity(intent);
             }
         });
         relSunGlass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+//                Intent intent = new Intent(getActivity(), LensListActivity.class);
+//                startActivity(intent);
             }
         });
         relLens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), LensListActivity.class);
+                startActivity(intent);
             }
         });
 

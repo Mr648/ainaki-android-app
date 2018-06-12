@@ -16,9 +16,10 @@ import apps.sffa.com.ainaki.R;
 
 public class SettingActivity extends PreferenceActivity {
     @Override
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.xml.app_setting,null);
-        addContentView(view,null);
+
+        addPreferencesFromResource(R.xml.app_setting);
     }
 }

@@ -5,6 +5,7 @@
     <color name="colorBackground">#DCDDDF</color>
     <color name="colorBackgroundAlpha">#33DCDDDF</color>
     <color name="colorAccent">#c2185b</color>
+    <color name="colorTab">#fac75180</color>
     <color name="colorButton">#6c6868</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
