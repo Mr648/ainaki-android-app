@@ -29,7 +29,6 @@ public class AboutUsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutus);
-
         fontMaterialIcon = FontManager.getTypeface(getApplicationContext(), FontManager.MATERIAL_ICONS);
         fontSocialIcon = FontManager.getTypeface(getApplicationContext(), FontManager.SOCIAL_ICONS);
 
@@ -44,8 +43,6 @@ public class AboutUsActivity extends AppCompatActivity {
         FontManager.setFont(txtSms,fontMaterialIcon);
         FontManager.setFont(txtRate,fontMaterialIcon);
         FontManager.setFont(txtLocation,fontMaterialIcon);
-
-
 
     }
 
