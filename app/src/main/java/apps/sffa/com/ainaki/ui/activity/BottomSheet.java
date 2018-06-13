@@ -19,8 +19,8 @@ import apps.sffa.com.ainaki.R;
 
 public class BottomSheet extends AppCompatActivity {
 
-    TextView txtFilterType;
-    BottomSheetBehavior sheetBehavior;
+   private TextView txtFilterType;
+    private BottomSheetBehavior sheetBehavior;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

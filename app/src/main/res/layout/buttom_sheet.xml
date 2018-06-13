@@ -55,4 +55,8 @@
        android:id="@+id/filtershape"
        android:visibility="gone"/>
 
+    <include layout="@layout/filter_face_color"
+        android:id="@+id/filtercolor"
+        android:visibility="gone"/>
+
 </LinearLayout>
