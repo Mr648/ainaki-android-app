@@ -6,29 +6,18 @@ package apps.sffa.com.ainaki.model.request;
 
 public class LoginRequest {
 
-    private String userEmail;
-    private String userPassword;
+    private String userPhone;
 
-    public  LoginRequest(String userEmail , String userPassword){
-        this.setUserEmail(userEmail);
-        this.setUserPassword(userPassword);
-
+    public LoginRequest(String userPhone) {
+        this.setUserPhone(userPhone);
     }
 
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 }

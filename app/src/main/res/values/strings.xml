@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Ainaki</string>
     <string name="btn_send">ارسال</string>
+    <string name="btn_confirm">تایید</string>
     <string name="btn_more">همه</string>
     <string name="label_register">ثبت‌نام</string>
     <string name="label_support_ticket">ارسال تیکت پشتیبانی</string>
@@ -8,6 +9,7 @@
     <string name="label_support_ticket_type">انتخاب نوع تیکت</string>
     <string name="label_cities">انتخاب شهرستان</string>
     <string name="label_login">ورود</string>
+    <string name="label_verification_code_">کد فعالسازی</string>
     <string name="hint_name">نام</string>
     <string name="hint_family">نام خانوادگی</string>
     <string name="hint_name_and_family">نام و نام‌خانوادگی</string>
@@ -32,6 +34,7 @@
     <string name="text_forget_password">ایمیل خود را وارد نمایید، ما نحوه تغییر رمز عبور را برای شما ارسال خواهیم کرد</string>
     <string name="m_icon_star">star</string>
     <string name="label_faq">سوالات متداول</string>
+    <string name="label_refresh_sms">در صورت عدم دریافت کد تایید اینجا کلیک کنید</string>
     <string name="label_favorite">علاقه مندی ها</string>
     <string name="label_lens_list">لیست لنزها</string>
     <string name="label_edit_profile">ویرایش حساب کاربری</string>
@@ -68,6 +71,7 @@
     <string name="label_currency">تومان</string>
     <string name="label_face_triangular">مثلثی</string>
     <string name="label_Phone_text">09xxxxxxxxx</string>
+    <string name="label_verification_code">کد فعالسازی(12345)</string>
     <string name="label_Phone_hit">جهت دریافت کد فعالسازی، شماره تلفن خود را وارد کنید</string>
     <string name="nav_open">باز کردن منو</string>
     <string name="nav_close">بستن منو</string>
@@ -122,6 +126,8 @@
     <string name="error_user_email_invalid">ایمیل وارد شده نامعتبر میباشد</string>
     <string name="error_user_password_empty">لطفا رمزعبور خود را وارد نمایید</string>
     <string name="error_user_password_invalid">رمزعبور وارد شده نادرست میباشد</string>
+    <string name="error_user_phone_empty">لطفا شماره موبایل خود را وارد نمایید</string>
+    <string name="error_user_phone_invalid">شماره به درستی وارد نشده است.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

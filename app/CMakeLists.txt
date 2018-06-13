@@ -29,7 +29,7 @@ add_library( # Sets the name of the library.
              src/main/cpp/facedetect/DetectionBasedTracker_jni.cpp
              src/main/cpp/facedetect/DetectionBasedTracker_jni.h)
 
-set(OpenCV_DIR "R:/programming-tools/opencv-android-sdk/sdk/sdk/native/jni")
+set(OpenCV_DIR "D:/devtools/opencv-3.3.0-android-sdk/sdk/native/jni")
 find_package(OpenCV REQUIRED)
 message(STATUS "OpenCV libraries: ${OpenCV_LIBS}")
 target_link_libraries(faceDetection ${OpenCV_LIBS})

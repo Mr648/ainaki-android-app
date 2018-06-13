@@ -8,7 +8,7 @@ public class LoginResponse {
 
     private boolean error;
     private String  message;
-    private String  apiToken;
+    private String authKey;
 
 
     public boolean hasError() {
@@ -27,11 +27,11 @@ public class LoginResponse {
         this.message = message;
     }
 
-    public String getApiToken() {
-        return apiToken;
+    public String getAuthKey() {
+        return authKey;
     }
 
-    public void setApiToken(String apiToken) {
-        this.apiToken = apiToken;
+    public void setAuthKey(String authKey) {
+        this.authKey = authKey;
     }
 }

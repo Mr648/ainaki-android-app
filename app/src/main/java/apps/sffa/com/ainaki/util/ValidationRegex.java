@@ -8,6 +8,7 @@ public class ValidationRegex {
 
     public  static  final String REGEX_UserEMAIL ="^.*$";
     public  static  final String REGEX_UserPASS ="^.*$";
+    public  static  final String REGEX_UserPHONE ="^.*$";
 
 
 }
