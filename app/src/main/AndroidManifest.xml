@@ -8,20 +8,29 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <supports-screens android:resizeable="true"
-        android:smallScreens="true"
-        android:normalScreens="true"
+    <supports-screens
+        android:anyDensity="true"
         android:largeScreens="true"
-        android:anyDensity="true" />
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
 
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
 
-    <uses-feature android:name="android.hardware.camera" android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front.autofocus"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -39,11 +48,13 @@
         <activity android:name=".ui.activity.ForgetPasswordActivity">
 
         </activity>
-        <activity android:name=".ui.activity.LensListActivity"
+        <activity
+            android:name=".ui.activity.LensListActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".ui.activity.GenderActivity"
+        <activity
+            android:name=".ui.activity.GenderActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
@@ -51,7 +62,8 @@
         <activity android:name=".ui.activity.SecendStepLoginAcivity">
 
         </activity>
-        <activity android:name=".ui.UserProfileActivity">
+
+        <activity android:name=".ui.activity.PhotoCropActivity">
 
         </activity>
 
@@ -59,10 +71,7 @@
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity android:name=".ui.activity.AboutUsActivity">
@@ -84,13 +93,17 @@
 
         </activity>
 
-        <activity android:name=".ui.activity.ProductsListActivity"
+        <activity
+            android:name=".ui.activity.ProductsListActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
         <activity android:name=".ui.activity.UserProfileActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".ui.activity.ShowProductActivity">
