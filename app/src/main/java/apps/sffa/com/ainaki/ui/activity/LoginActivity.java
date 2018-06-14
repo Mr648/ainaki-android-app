@@ -8,6 +8,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -48,13 +49,16 @@ public class LoginActivity extends AppCompatActivity {
     private Typeface fontIranSans;
 
 
+    private String TAG = "LoginActivity";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_it login);
+        setContentView(R.layout.activity_login);
+
+
         fontIranSans = FontManager.getTypeface(getApplicationContext(), FontManager.IRANSANS_TEXTS);
         CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator);
-
         txtPhone = (TextInputEditText) findViewById(R.id.txtPhone);
 
 
@@ -73,6 +77,13 @@ public class LoginActivity extends AppCompatActivity {
         //  txtDontHaveAccount = (TextView) findViewById(R.id.txtDontHaveAccount);
         btnLogin = (Button) findViewById(R.id.btnLogin);
 
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null && !extras.isEmpty()) {
+            String phone = extras.getString("phone");
+            txtPhone.setText(phone);
+        }
 
         setFont();
 //        inputLayoutEmail.setErrorEnabled(true);
@@ -112,7 +123,8 @@ public class LoginActivity extends AppCompatActivity {
         sendSms(txtPhone.getText().toString());
     }
 
-    private void sendSms(String phone) {
+    private void sendSms(final String phone) {
+
         Gson gson = new GsonBuilder().setLenient().create();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -132,24 +144,29 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.body() != null) {
 
                     if (!response.body().hasError()) {
-                        // login successfull TODO go to verification activity
-                        Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                        // Login Successfull
+                        // TODO go to verification activity
+                        Log.i(TAG, "onResponse.SUCCESS: " + response.body().getMessage());
+
                         Intent intent = new Intent(LoginActivity.this, SmsVerificationActivity.class);
-                        intent.putExtra("authKey",response.body().getAuthKey());
+                        intent.putExtra("phone", phone);
+
                         startActivity(intent);
+                        finish();
+
                     } else {
-                        Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.i(TAG, "onResponse.FAILURE: " + response.body().getMessage());
                     }
 
                 } else {
-                    Toast.makeText(LoginActivity.this, "خطا در اتصال به اینترنت", Toast.LENGTH_SHORT).show();
+                    Log.i(TAG, "onResponse.NULL: " + null);
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, "خطا در اتصال به اینترنت", Toast.LENGTH_SHORT).show();
-
+                Log.i(TAG, "onFailure: " + t.getMessage());
             }
         });
     }

@@ -59,6 +59,9 @@
     <string name="label_lens">لنز</string>
     <string name="label_sunglass">آفتابی</string>
     <string name="label_eyeglass">طبی</string>
+    <string name="label_try_again">تلاش مجدد در: </string>
+    <string name="label_try_again_btn">تلاش مجدد</string>
+    <string name="label_second">ثانیه</string>
     <string name="btn_users_comment">نظرات کاربران</string>
     <string name="btn_description">توضیحات</string>
     <string name="btn_product_Specifications">باید به چشم ها ایمان داشت.

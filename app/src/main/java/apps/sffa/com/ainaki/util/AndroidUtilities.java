@@ -2,6 +2,7 @@ package apps.sffa.com.ainaki.util;
 
 import android.content.Context;
 import android.os.Build;
+import android.util.Base64;
 
 /**
  * Created by mr-code on 6/12/2018.
@@ -29,6 +30,12 @@ public class AndroidUtilities {
             return 0;
         }
         return (int) Math.ceil(density * value);
+    }
+
+
+    public static String base64Reverse(String key){
+        return Base64.encodeToString(key.getBytes(), Base64.URL_SAFE);
+//                new StringBuilder().append(Base64.encodeToString(key.getBytes(), Base64.CRLF)).reverse().toString();
     }
 
 }

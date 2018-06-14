@@ -7,12 +7,14 @@ package apps.sffa.com.ainaki.model.response;
 public class LoginResponse {
 
     private boolean error;
-    private String  message;
+    private String message;
+
+    private boolean isAuthResponse;
     private String authKey;
 
 
     public boolean hasError() {
-        return error;
+        return isError();
     }
 
     public void setError(boolean error) {
@@ -25,6 +27,23 @@ public class LoginResponse {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return hasError() + "\t::" + getMessage();
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public boolean isAuthResponse() {
+        return isAuthResponse;
+    }
+
+    public void setAuthResponse(boolean authResponse) {
+        isAuthResponse = authResponse;
     }
 
     public String getAuthKey() {

@@ -2,12 +2,15 @@ package apps.sffa.com.ainaki.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AnimationUtils;
 
 import apps.sffa.com.ainaki.R;
+import apps.sffa.com.ainaki.util.AinakiPrefrenceManager;
+import apps.sffa.com.ainaki.util.AndroidUtilities;
 
 /**
  * Created by Diako on 29/05/2018.
@@ -18,15 +21,27 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        findViewById(R.id.imgLogo).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake));
+        findViewById(R.id.imgLogo).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake));
+        String authKey = AinakiPrefrenceManager.getString(getApplicationContext(), AndroidUtilities.base64Reverse("authKey"), null);
+        final boolean isAuthenticated = (authKey != null && !authKey.isEmpty());
 
-        int secondsDelayed = 1;
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                finish();
+        new CountDownTimer(5000, 100) {
+            @Override
+            public void onTick(final long l) {
+
             }
-        }, secondsDelayed * 5000);
+
+            @Override
+            public void onFinish() {
+                if (isAuthenticated) {
+                    startActivity(new Intent(SplashActivity.this, GenderActivity.class));
+                    finish();
+                } else {
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    finish();
+                }
+            }
+        }.start();
 
     }
 }

@@ -6,6 +6,7 @@ package apps.sffa.com.ainaki.webservice;
 
 public class API {
 
-    public  static  final  String BASE_URL= "http://172.18.2.12/";
+    public  static  final  String BASE_URL= "http://172.18.2.225/";
+//    public  static  final  String BASE_URL= "http://169.254.214.101/";
 
 }
