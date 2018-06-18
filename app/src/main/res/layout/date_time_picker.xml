@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="172dp"
+    android:layoutDirection="rtl">
+
+    <LinearLayout
+        android:id="@+id/lnrDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/_32dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_16dp"
+        android:paddingTop="@dimen/_16dp">
+
+
+        <Spinner
+            android:id="@+id/spnDay"
+            style="@style/Widget.AppCompat.Spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_72dp"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/spnMonth"
+            style="@style/Widget.AppCompat.Spinner"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/months"
+            android:minWidth="@dimen/_72dp"
+            android:spinnerMode="dropdown" />
+
+
+        <Spinner
+            android:id="@+id/spnYear"
+            style="@style/Widget.AppCompat.Spinner"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/_72dp"
+            android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnPick"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_weight="1"
+        android:text="@string/btn_pick" />
+
+</RelativeLayout>
