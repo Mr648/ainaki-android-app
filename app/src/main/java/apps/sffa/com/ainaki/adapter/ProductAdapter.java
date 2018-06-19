@@ -113,12 +113,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         holder.getTxtProductName().setText( mItems.get(position).getName());
 
-        try {
+        /*try {
             Picasso.with(mContext).load(API.BASE_URL
                     + URLDecoder.decode(mItems.get(position).getImage(),"UTF-8")).into(holder.getImgProduct());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override

@@ -66,7 +66,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.action_faq) {
         } else if (id == R.id.action_list_accessories) {
+            Intent intent = new Intent(MainActivity.this, ProductsListActivity.class);
+            intent.putExtra("TITLE", "لیست وسایل جانبی");
+            intent.putExtra("CATEGORY", "accessories");
+            intent.putExtra("FILTER", "all");
+            startActivity(intent);
         } else if (id == R.id.action_list_lens) {
+            Intent intent = new Intent(MainActivity.this, LensListActivity.class);
+            startActivity(intent);
         } else if (id == R.id.action_list_purchases) {
         } else if (id == R.id.action_list_favorite) {
         } else if (id == R.id.action_ticket) {

@@ -44,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerInside"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    app:srcCompat="@drawable/ic_sunglass" />
             </LinearLayout>
 
             <LinearLayout
@@ -62,55 +62,45 @@
                     android:padding="@dimen/_8dp"
                     android:weightSum="8">
 
-                    <ImageView
+                    <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/imgDislike"
                         android:layout_width="@dimen/_24dp"
                         android:layout_height="@dimen/_24dp"
                         android:layout_margin="@dimen/_4dp"
                         android:gravity="center_vertical|center_horizontal"
-                        android:src="@drawable/ic_thumb_down_black_18dp"
-                        android:tint="@color/colorAccent"
-                        android:tintMode="add" />
+                        app:srcCompat="@drawable/ic_thumb_down_black_18dp" />
 
-                    <ImageView
+                    <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/imgBuy"
                         android:layout_width="@dimen/_24dp"
                         android:layout_height="@dimen/_24dp"
                         android:layout_margin="@dimen/_4dp"
                         android:gravity="center_vertical|center_horizontal"
-                        android:src="@drawable/ic_thumb_up_black_18dp"
-                        android:tint="@color/colorAccent"
-                        android:tintMode="add" />
+                        app:srcCompat="@drawable/ic_thumb_up_black_18dp" />
 
-                    <ImageView
+                    <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/imgShare"
                         android:layout_width="@dimen/_24dp"
                         android:layout_height="@dimen/_24dp"
                         android:layout_margin="@dimen/_4dp"
                         android:gravity="center_vertical|center_horizontal"
-                        android:src="@drawable/ic_share_black_18dp"
-                        android:tint="@color/colorAccent"
-                        android:tintMode="add" />
+                        app:srcCompat="@drawable/ic_share_black_18dp" />
 
-                    <ImageView
+                    <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/imgFavorite"
                         android:layout_width="@dimen/_24dp"
                         android:layout_height="@dimen/_24dp"
                         android:layout_margin="@dimen/_4dp"
                         android:gravity="center_vertical|center_horizontal"
-                        android:src="@drawable/ic_shopping_cart_black_18dp"
-                        android:tint="@color/colorAccent"
-                        android:tintMode="add" />
+                        app:srcCompat="@drawable/ic_shopping_cart_black_18dp" />
 
-                    <ImageView
+                    <android.support.v7.widget.AppCompatImageView
                         android:id="@+id/imgLike"
                         android:layout_width="@dimen/_24dp"
                         android:layout_height="@dimen/_24dp"
                         android:layout_margin="@dimen/_4dp"
                         android:gravity="center_vertical|center_horizontal"
-                        android:src="@drawable/ic_favorite_border_black_18dp"
-                        android:tint="@color/colorAccent"
-                        android:tintMode="add" />
+                        app:srcCompat="@drawable/ic_favorite_border_black_18dp" />
 
                 </LinearLayout>
 
