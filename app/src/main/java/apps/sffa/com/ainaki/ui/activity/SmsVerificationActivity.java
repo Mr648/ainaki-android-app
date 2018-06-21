@@ -144,12 +144,9 @@ public class SmsVerificationActivity extends AppCompatActivity {
 
     private void sendVerificationCode(final String phone, final String verificationCode) {
 
-        Gson gson = new GsonBuilder().setLenient().create();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
+
+        Retrofit retrofit = API.getRetrofit();
 
         LoginWebService webService = retrofit.create(LoginWebService.class);
 

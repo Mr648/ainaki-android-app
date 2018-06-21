@@ -57,14 +57,13 @@
             android:name=".ui.activity.GenderActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
+
+
         </activity>
 
         <activity android:name=".ui.activity.SecendStepLoginAcivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity android:name=".ui.activity.PhotoCropActivity">
@@ -74,7 +73,10 @@
         <activity
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 

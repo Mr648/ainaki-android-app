@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -33,6 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProductsListActivity extends AppCompatActivity {
 
     RecyclerView recItems;
+    TextView txtTitle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,11 +47,16 @@ public class ProductsListActivity extends AppCompatActivity {
 
             final String category = extras.getString("CATEGORY");
             final String filter = extras.getString("FILTER");
+            final String title = extras.getString("TITLE");
 
             recItems = (RecyclerView) findViewById(R.id.recItems);
+            txtTitle = (TextView) findViewById(R.id.txtTitle);
+
+            txtTitle.setText(title);
             recItems.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
             recItems.setNestedScrollingEnabled(false);
             fetchProductsData(recItems, category, filter);
+//            recItems.setAdapter(new ProductAdapter(ProductsListActivity.this,initProducts(null)));
         } else {
             finish();
             Toast.makeText(ProductsListActivity.this, "Error in init extras", Toast.LENGTH_SHORT).show();
@@ -58,23 +65,22 @@ public class ProductsListActivity extends AppCompatActivity {
 
     }
 
-    private Retrofit initRetrofit() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
+    private ArrayList<Product> initProducts (String type){
 
-        return retrofit;
+        ArrayList<Product>products=new ArrayList<>();
+
+        for (int i = 0; i <10 ; i++) {
+            products.add(new Product(i,"product #"+i));
+
+        }
+        return products;
     }
 
     private void fetchProductsData(final RecyclerView recItems, String category, String filter) {
 
-        ProductListWebService api = initRetrofit().create(ProductListWebService.class);
+        ProductListWebService api = API.getRetrofit().create(ProductListWebService.class);
 
 
         Call<List<Product>> callProducts = api.getProducts(category, filter);
@@ -96,18 +102,10 @@ public class ProductsListActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 Toast.makeText(ProductsListActivity.this, "This is Error onFailure", Toast.LENGTH_SHORT).show();
-
             }
         });
     }
 
-    public ArrayList<Product> initItems() {
-        ArrayList<Product> items = new ArrayList<>();
-        for (int i = 1; i <= 20; i++) {
-            items.add(new Product(i, "Product Name #" + i));
-        }
-        return items;
-    }
 
 
 }
