@@ -1,6 +1,7 @@
 package apps.sffa.com.ainaki.ui.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,17 +28,28 @@ import java.util.TimerTask;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ImageSliderAdapter;
+import apps.sffa.com.ainaki.adapter.ProductAdapter;
+import apps.sffa.com.ainaki.model.Product;
+import apps.sffa.com.ainaki.model.request.FavoriteRequest;
+import apps.sffa.com.ainaki.model.response.GeneralResponse;
+import apps.sffa.com.ainaki.util.AinakiPrefrenceManager;
+import apps.sffa.com.ainaki.util.AndroidUtilities;
+import apps.sffa.com.ainaki.webservice.API;
+import apps.sffa.com.ainaki.webservice.UserWebService;
 import me.relex.circleindicator.CircleIndicator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Diako on 03/06/2018.
  */
 
-public class ShowProductActivity extends AppCompatActivity{
+public class ShowProductActivity extends AppCompatActivity {
 
 
     private ViewPager mPager;
-    private boolean like=false;
+    private boolean like = false;
     private CircleIndicator indicator;
     private static int currentPage = 0;
     private static final List<Integer> images = Arrays.asList(
@@ -77,16 +90,25 @@ public class ShowProductActivity extends AppCompatActivity{
         }, 2500, 2500);
     }
 
+    private Integer productId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_product);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null && !extras.isEmpty()) {
+            productId = extras.getInt("PRODUCT_ID");
+        } else {
+            finish();
+        }
+
         mPager = (ViewPager) findViewById(R.id.pager);
         indicator = (CircleIndicator) findViewById(R.id.indicator);
         initializeImageSlider();
 
-        TabHostWindow = (TabHost)findViewById(R.id.tabHostWindow);
+        TabHostWindow = (TabHost) findViewById(R.id.tabHostWindow);
         imgFav = (ImageView) findViewById(R.id.imgFav);
         imgShareProduct = (ImageView) findViewById(R.id.imgShareProduct);
         imgCamera = (ImageView) findViewById(R.id.imgCamera);
@@ -138,16 +160,14 @@ public class ShowProductActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                if (!like){
-                    imgFav.setImageResource(R.drawable.ic_favorite_black_18dp);
-                    imgFav.setColorFilter((getResources().getColor(R.color.colorPrimary)));
-                    like=true;
-
-                }else {
-                    imgFav.setImageResource(R.drawable.ic_favorite_border_black_18dp);
-                    imgFav.setColorFilter(getResources().getColor(R.color.colorBlack));
-                    like=false;
+                if (!like) {
+                    likeTheProduct();
+                } else {
+                    dislikeTheProduct();
                 }
+
+                like=!like;
+
             }
         });
 
@@ -157,7 +177,7 @@ public class ShowProductActivity extends AppCompatActivity{
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 String shareBody = "فریم و لنزهای متفاوت را در اپلیکیشن عینکی بر روی صورت خود امتحان کنید";
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
@@ -166,7 +186,7 @@ public class ShowProductActivity extends AppCompatActivity{
         imgCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mintent=new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
+                Intent mintent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
                 startActivity(mintent);
             }
         });
@@ -182,5 +202,69 @@ public class ShowProductActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    private void likeTheProduct() {
+
+        UserWebService api = API.getRetrofit().create(UserWebService.class);
+
+        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse("authKey"), null);
+
+        Call<GeneralResponse> callProducts = api.like(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"), productId);
+
+
+        callProducts.enqueue(new Callback<GeneralResponse>() {
+
+            @Override
+            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+                if (response.body() != null) {
+                    if (!response.body().hasError()) {
+                        imgFav.setImageResource(R.drawable.ic_favorite_black_18dp);
+                        imgFav.setColorFilter((getResources().getColor(R.color.colorPrimary)));
+                    } else {
+                        Toast.makeText(ShowProductActivity.this, "This is Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                Toast.makeText(ShowProductActivity.this, "This is Error", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                Toast.makeText(ShowProductActivity.this, "This is Error onFailure", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    private void dislikeTheProduct() {
+
+        UserWebService api = API.getRetrofit().create(UserWebService.class);
+        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse("authKey"), null);
+
+        Call<GeneralResponse> callProducts = api.dislike(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"), productId);
+
+
+        callProducts.enqueue(new Callback<GeneralResponse>() {
+
+            @Override
+            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+                if (response.body() != null) {
+                    if (!response.body().hasError()) {
+                        imgFav.setImageResource(R.drawable.ic_favorite_border_black_18dp);
+                        imgFav.setColorFilter(getResources().getColor(R.color.colorBlack));
+                    } else {
+                        Toast.makeText(ShowProductActivity.this, "This is Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                Toast.makeText(ShowProductActivity.this, "This is Error", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                Toast.makeText(ShowProductActivity.this, "This is Error onFailure", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

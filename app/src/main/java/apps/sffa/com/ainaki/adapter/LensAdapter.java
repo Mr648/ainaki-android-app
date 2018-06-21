@@ -48,17 +48,10 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final View view;
-        private final ImageView imgFavorite;
-        private final ImageView imgBuy;
         private final TextView txtProductName;
         private final TextView txtType;
         private final TextView txtPrice;
 
-
-        private final AppCompatImageView imgFace;
-        private final AppCompatImageView imgSmile;
-        private final AppCompatImageView imgLeftEye;
-        private final AppCompatImageView imgRightEye;
 
         private void animateImageViews(View view) {
 
@@ -70,33 +63,11 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
         private ViewHolder(View view) {
             super(view);
             this.view = view;
-            imgFavorite = (ImageView) view.findViewById(R.id.imgFavorite);
-            imgBuy = (ImageView) view.findViewById(R.id.imgBuy);
             txtProductName = (TextView) view.findViewById(R.id.txtProductCategory);
             txtType = (TextView) view.findViewById(R.id.txtType);
             txtPrice = (TextView) view.findViewById(R.id.txtPrice);
 
-            imgFace = (AppCompatImageView) view.findViewById(R.id.imgFace);
-            imgSmile = (AppCompatImageView) view.findViewById(R.id.imgSmile);
-            imgLeftEye = (AppCompatImageView) view.findViewById(R.id.imgLeftEye);
-            imgRightEye = (AppCompatImageView) view.findViewById(R.id.imgRightEye);
 
-
-            Timer timer = new Timer();
-            final Handler handler = new Handler();
-            final TimerTask timerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            imgLeftEye.setColorFilter(getRandomColor());
-                            imgRightEye.setColorFilter(getRandomColor());
-                        }
-                    });
-                }
-            };
-            timer.scheduleAtFixedRate(timerTask, 150, 150);
             animateImageViews(view);
 
         }
