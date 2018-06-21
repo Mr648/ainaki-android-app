@@ -2,6 +2,7 @@
     <string name="app_name">Ainaki</string>
     <string name="btn_send">ارسال</string>
     <string name="btn_confirm">تایید</string>
+    <string name="btn_pick">انتخاب</string>
     <string name="btn_more">همه</string>
     <string name="label_register">ثبت‌نام</string>
     <string name="label_support_ticket">ارسال تیکت پشتیبانی</string>
@@ -106,6 +107,21 @@
     <string name="m_icon_report">report</string>
     <string name="m_icon_expand_more">expand_more</string>
     <string name="m_icon_expand_less">expand_less</string>
+
+    <string-array name="months">
+        <item>فروردین</item>
+        <item>اردیبهشت</item>
+        <item>خرداد</item>
+        <item>تیر</item>
+        <item>مرداد</item>
+        <item>شهریور</item>
+        <item>مهر</item>
+        <item>آبان</item>
+        <item>آذر</item>
+        <item>دی</item>
+        <item>بهمن</item>
+        <item>اسفند</item>
+        </string-array>
 
     <array name="provinces">
         <item>sfsfsf</item>
