@@ -11,12 +11,26 @@ public class FavoriteRequest {
     private String productCategory;
 
     public FavoriteRequest(String authKey,
-                           String productId,
-                           String productCategory) {
+                           String productId, String productCategory) {
 
         this.authKey = authKey;
         this.productId = productId;
         this.productCategory = productCategory;
+    }
+
+
+    public FavoriteRequest(String authKey) {
+        this.authKey = authKey;
+        this.productId = null;
+        this.productCategory = null;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public String getAuthKey() {
@@ -27,13 +41,6 @@ public class FavoriteRequest {
         this.authKey = authKey;
     }
 
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
 
     public String getProductCategory() {
         return productCategory;

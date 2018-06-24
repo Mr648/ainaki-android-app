@@ -76,6 +76,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.action_list_purchases) {
         } else if (id == R.id.action_list_favorite) {
+            Intent intent = new Intent(MainActivity.this, ProductsListActivity.class);
+            intent.putExtra("TITLE", "لیست علاقه مندی ها");
+            intent.putExtra("CATEGORY", "FAVORITES");
+            intent.putExtra("FILTER", "all");
+            startActivity(intent);
         } else if (id == R.id.action_ticket) {
         }else if (id == R.id.action_profile) {
             Intent intent = new Intent(MainActivity.this,UserProfileActivity.class);

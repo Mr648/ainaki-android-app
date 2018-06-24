@@ -167,7 +167,11 @@ public class SmsVerificationActivity extends AppCompatActivity {
                                 AndroidUtilities.base64Reverse("authKey"),
                                 response.body().getAuthKey()
                         );
-
+                        AinakiPrefrenceManager.putString(
+                                getApplicationContext(),
+                                AndroidUtilities.base64Reverse("csrfToken"),
+                                response.body().getCsrfToken()
+                        );
                         Log.i(TAG, "onResponse.SUCCESS: " + response.body().getMessage());
                         Intent intent = new Intent(SmsVerificationActivity.this, SecendStepLoginAcivity.class);
                         startActivity(intent);

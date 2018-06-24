@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,6 +48,7 @@ import retrofit2.Response;
 
 public class ShowProductActivity extends AppCompatActivity {
 
+    private String TAG = "ShowProductActivity";
 
     private ViewPager mPager;
     private boolean like = false;
@@ -166,7 +168,7 @@ public class ShowProductActivity extends AppCompatActivity {
                     dislikeTheProduct();
                 }
 
-                like=!like;
+                like = !like;
 
             }
         });
@@ -210,7 +212,7 @@ public class ShowProductActivity extends AppCompatActivity {
 
         String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse("authKey"), null);
 
-        Call<GeneralResponse> callProducts = api.like(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"), productId);
+        Call<GeneralResponse> callProducts = api.like(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"));
 
 
         callProducts.enqueue(new Callback<GeneralResponse>() {
@@ -221,16 +223,19 @@ public class ShowProductActivity extends AppCompatActivity {
                     if (!response.body().hasError()) {
                         imgFav.setImageResource(R.drawable.ic_favorite_black_18dp);
                         imgFav.setColorFilter((getResources().getColor(R.color.colorPrimary)));
+                        Log.i(TAG, "onResponse.SUCCESS: " + response.body().getMessage());
                     } else {
-                        Toast.makeText(ShowProductActivity.this, "This is Error", Toast.LENGTH_SHORT).show();
+                        Log.i(TAG, "onResponse.FAILURE: " + response.body().getMessage());
                     }
+                } else {
+                    Log.i(TAG, "onResponse.NULL: " + null);
                 }
-                Toast.makeText(ShowProductActivity.this, "This is Error", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void onFailure(Call<GeneralResponse> call, Throwable t) {
-                Toast.makeText(ShowProductActivity.this, "This is Error onFailure", Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "onFailure: " + t.getMessage());
             }
         });
 
@@ -241,7 +246,7 @@ public class ShowProductActivity extends AppCompatActivity {
         UserWebService api = API.getRetrofit().create(UserWebService.class);
         String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse("authKey"), null);
 
-        Call<GeneralResponse> callProducts = api.dislike(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"), productId);
+        Call<GeneralResponse> callProducts = api.dislike(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"));
 
 
         callProducts.enqueue(new Callback<GeneralResponse>() {
@@ -252,17 +257,19 @@ public class ShowProductActivity extends AppCompatActivity {
                     if (!response.body().hasError()) {
                         imgFav.setImageResource(R.drawable.ic_favorite_border_black_18dp);
                         imgFav.setColorFilter(getResources().getColor(R.color.colorBlack));
+                        Log.i(TAG, "onResponse.SUCCESS: " + response.body().getMessage());
                     } else {
-                        Toast.makeText(ShowProductActivity.this, "This is Error", Toast.LENGTH_SHORT).show();
+                        Log.i(TAG, "onResponse.FAILURE: " + response.body().getMessage());
                     }
+                } else {
+                    Log.i(TAG, "onResponse.NULL: " + null);
                 }
-                Toast.makeText(ShowProductActivity.this, "This is Error", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onFailure(Call<GeneralResponse> call, Throwable t) {
-                Toast.makeText(ShowProductActivity.this, "This is Error onFailure", Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "onFailure: " + t.getMessage());
             }
         });
 

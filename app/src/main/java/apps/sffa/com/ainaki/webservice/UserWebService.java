@@ -17,14 +17,14 @@ import retrofit2.http.Path;
 
 public interface UserWebService {
 
-    @POST("users/like/{productId}")
-    Call<GeneralResponse> like(@Body FavoriteRequest request, @Path("productId") Integer productId);
+    @POST("users/like")
+    Call<GeneralResponse> like(@Body FavoriteRequest request);
 
-    @POST("users/dislike/{productId}")
-    Call<GeneralResponse> dislike(@Body FavoriteRequest request, @Path("productId") Integer productId);
+    @POST("users/dislike")
+    Call<GeneralResponse> dislike(@Body FavoriteRequest request);
 
-    @GET("/users/{like}/{filter}")
-    Call<List<Product>> getProducts(@Path("category") String category, @Path("filter") String filter);
+    @POST("user/favorites")
+    Call<List<Product>> getFavoriteProducts(@Body FavoriteRequest request);
 
 
 }

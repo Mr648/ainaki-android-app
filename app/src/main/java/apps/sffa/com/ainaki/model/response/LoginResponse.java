@@ -9,6 +9,7 @@ public class LoginResponse extends GeneralResponse {
 
     private boolean isAuthResponse;
     private String authKey;
+    private String csrfToken;
 
 
     @Override
@@ -33,4 +34,13 @@ public class LoginResponse extends GeneralResponse {
     public void setAuthKey(String authKey) {
         this.authKey = authKey;
     }
+
+    public void setCsrfToken(String csrfToken) {
+        this.csrfToken = csrfToken;
+    }
+
+    public String getCsrfToken() {
+        return csrfToken;
+    }
+
 }
