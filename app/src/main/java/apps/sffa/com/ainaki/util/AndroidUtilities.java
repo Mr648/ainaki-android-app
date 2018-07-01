@@ -34,9 +34,7 @@ public class AndroidUtilities {
 
 
     public static String base64Reverse(String key){
-        return key;
-//        return Base64.encodeToString(key.getBytes(), Base64.URL_SAFE);
-//                new StringBuilder().append(Base64.encodeToString(key.getBytes(), Base64.CRLF)).reverse().toString();
+        return Base64.encodeToString(key.getBytes(), Base64.DEFAULT);
     }
 
 }

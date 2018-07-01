@@ -15,6 +15,7 @@ import android.widget.Toast;
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.model.Gender;
 import apps.sffa.com.ainaki.widget.BorderedImageView;
+import butterknife.ButterKnife;
 
 /**
  * Created by Diako on 10/06/2018.
@@ -37,6 +38,7 @@ public class GenderActivity extends AppCompatActivity implements View.OnTouchLis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender);
+        ButterKnife.bind(this);
         imgKids = (ImageView) findViewById(R.id.imgKids);
         imgMen = (ImageView) findViewById(R.id.imgMen);
         imgWomen = (ImageView) findViewById(R.id.imgWomen);

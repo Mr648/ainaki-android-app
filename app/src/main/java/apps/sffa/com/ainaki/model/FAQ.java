@@ -5,14 +5,16 @@ package apps.sffa.com.ainaki.model;
  */
 
 public class FAQ {
+
     private int id;
     private String title;
     private String answer;
     private String question;
-    public FAQ(String title,String answer, String question){
-       this.setTitle(title);
-       this.setAnswer(answer);
-       this.setQuestion(question);
+
+    public FAQ(String title, String answer, String question) {
+        this.setTitle(title);
+        this.setAnswer(answer);
+        this.setQuestion(question);
     }
 
 

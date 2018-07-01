@@ -19,9 +19,12 @@ import java.util.List;
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProductAdapter;
 import apps.sffa.com.ainaki.model.Favorite;
+import apps.sffa.com.ainaki.model.Model;
 import apps.sffa.com.ainaki.model.Product;
 import apps.sffa.com.ainaki.model.request.FavoriteRequest;
+import apps.sffa.com.ainaki.model.request.GeneralRequest;
 import apps.sffa.com.ainaki.util.AndroidUtilities;
+import apps.sffa.com.ainaki.util.AppKeys;
 import apps.sffa.com.ainaki.webservice.API;
 import apps.sffa.com.ainaki.webservice.ProductListWebService;
 import apps.sffa.com.ainaki.webservice.UserWebService;
@@ -84,11 +87,11 @@ public class ProductsListActivity extends AppCompatActivity {
 
     private void fetchProductsData(final RecyclerView recItems, String category, String filter) {
 
-        Call<List<Product>> callProducts = null;
+        Call<List<Model>> callProducts = null;
         switch (category) {
             case "FAVORITES": {
                 UserWebService api = API.getRetrofit().create(UserWebService.class);
-                callProducts = api.getFavoriteProducts(new FavoriteRequest(AndroidUtilities.base64Reverse("authKey")));
+                callProducts = api.getFavoriteProducts(new GeneralRequest(AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY)));
             }
             break;
             default: {
@@ -99,18 +102,18 @@ public class ProductsListActivity extends AppCompatActivity {
         }
 
 
-        callProducts.enqueue(new Callback<List<Product>>() {
+        callProducts.enqueue(new Callback<List<Model>>() {
 
             @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+            public void onResponse(Call<List<Model>> call, Response<List<Model>> response) {
                 if (response.body() != null) {
                     if (!response.body().isEmpty()) {
-                        ArrayList<Product> products = new ArrayList<>();
+                        ArrayList<Model> products = new ArrayList<>();
                         products.addAll(response.body());
                         recItems.setAdapter(new ProductAdapter(getApplicationContext(), products));
                         Log.i(TAG, "onResponse.SUCCESS: " + response.body());
                     } else {
-                        Log.i(TAG, "onResponse.FAILURE: " + response );
+                        Log.i(TAG, "onResponse.FAILURE: " + response);
                     }
                 } else {
                     Log.i(TAG, "onResponse.NULL: " + null);
@@ -118,7 +121,7 @@ public class ProductsListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
+            public void onFailure(Call<List<Model>> call, Throwable t) {
                 Toast.makeText(ProductsListActivity.this, "This is Error onFailure", Toast.LENGTH_SHORT).show();
             }
         });

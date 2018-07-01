@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 import com.squareup.picasso.Picasso;
 
@@ -18,8 +20,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import apps.sffa.com.ainaki.R;
-
-import apps.sffa.com.ainaki.model.Favorite;
+import apps.sffa.com.ainaki.model.Model;
 import apps.sffa.com.ainaki.model.Product;
 import apps.sffa.com.ainaki.ui.activity.ShowProductActivity;
 import apps.sffa.com.ainaki.util.FontManager;
@@ -33,11 +34,11 @@ import apps.sffa.com.ainaki.webservice.API;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     private static Context mContext;
-    private ArrayList<Product> mItems;
+    private ArrayList<Model> mItems;
     Typeface fontMaterialIcons;
 
     public ProductAdapter(Context mContext,
-                          ArrayList<Product> mItems) {
+                          ArrayList<Model> mItems) {
 
         this.mItems = mItems;
         this.mContext = mContext;
@@ -107,26 +108,33 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 //        FontManager.setFont(holder.getTxtShare(),fontMaterialIcons);
 //        FontManager.setFont(holder.getTxtLike(),fontMaterialIcons);
 //        FontManager.setFont(holder.getTxtDislike(),fontMaterialIcons);
-        final Product currentProduct = mItems.get(position);
 
-        holder.getTxtPrice().setText(String.format("%.3f", currentProduct.getPrice()));
+        final Model currentProduct = mItems.get(position);
 
-        holder.getTxtProductName().setText(currentProduct.getName());
-        holder.getProductContainer().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, ShowProductActivity.class);
-                intent.putExtra("PRODUCT_ID", currentProduct.getId());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
-            }
-        });
-        try {
-            Picasso.with(mContext).load(API.BASE_URL
-                    + URLDecoder.decode(currentProduct.getImage(),"UTF-8")).into(holder.getImgProduct());
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        Log.i("PRODUCT", position + " :: " + currentProduct);
+//
+//        holder.getTxtPrice().setText(String.format("%.3f", currentProduct.getAttrs().get("price")));
+//
+//        holder.getTxtProductName().setText(currentProduct.getAttrs().get("name").getValue().toString());
+//
+//        holder.getProductContainer().setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(mContext, ShowProductActivity.class);
+//                intent.putExtra("PRODUCT_ID", currentProduct.getId());
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                mContext.startActivity(intent);
+//            }
+//        });
+//        if (((String[]) currentProduct.getAttrs().get("image").getValue()).length != 0) {
+//
+//        }
+//        try {
+//            Picasso.with(mContext).load(API.BASE_URL
+//                    + URLDecoder.decode(currentProduct.getImage(), "UTF-8")).into(holder.getImgProduct());
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override

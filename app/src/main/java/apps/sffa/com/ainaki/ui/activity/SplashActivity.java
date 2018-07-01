@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.util.AinakiPrefrenceManager;
 import apps.sffa.com.ainaki.util.AndroidUtilities;
+import apps.sffa.com.ainaki.util.AppKeys;
 
 /**
  * Created by Diako on 29/05/2018.
@@ -22,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         findViewById(R.id.imgLogo).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake));
-        String authKey = AinakiPrefrenceManager.getString(getApplicationContext(), AndroidUtilities.base64Reverse("authKey"), null);
+        String authKey = AinakiPrefrenceManager.getString(getApplicationContext(), AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY), null);
         final boolean isAuthenticated = (authKey != null && !authKey.isEmpty());
 
         new CountDownTimer(5000, 100) {

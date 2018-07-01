@@ -4,23 +4,21 @@ package apps.sffa.com.ainaki.model.request;
  * Created by mr-code on 6/14/2018.
  */
 
-public class FavoriteRequest {
+public class FavoriteRequest extends GeneralRequest {
 
-    private String authKey;
     private String productId;
     private String productCategory;
 
     public FavoriteRequest(String authKey,
                            String productId, String productCategory) {
-
-        this.authKey = authKey;
+        super(authKey);
         this.productId = productId;
         this.productCategory = productCategory;
     }
 
 
     public FavoriteRequest(String authKey) {
-        this.authKey = authKey;
+        super(authKey);
         this.productId = null;
         this.productCategory = null;
     }
@@ -32,15 +30,6 @@ public class FavoriteRequest {
     public void setProductId(String productId) {
         this.productId = productId;
     }
-
-    public String getAuthKey() {
-        return authKey;
-    }
-
-    public void setAuthKey(String authKey) {
-        this.authKey = authKey;
-    }
-
 
     public String getProductCategory() {
         return productCategory;

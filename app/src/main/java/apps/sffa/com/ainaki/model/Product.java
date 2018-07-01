@@ -4,24 +4,21 @@ package apps.sffa.com.ainaki.model;
  * Created by Diako on 21/05/2018.
  */
 
-public class Product {
+public class Product extends Model {
 
-    private int id;
-    private String name;
-    private double price;
-    private String image;
+    protected String name;
+    protected float price;
+    protected String image;
+    protected int brandId;
+    protected int warrantyId;
+    protected int categoryId;
+    protected String description;
+
 
     public String getName() {
         return name;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -31,13 +28,12 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
     public String getImage() {
         return image;
-
     }
 
     public void setImage(String image) {
@@ -45,8 +41,8 @@ public class Product {
     }
 
 
-    public Product(int id, String name){
-        this.id = id;
-        this.name= name;
+    public Product(int id, String name) {
+        super(id);
+        this.name = name;
     }
 }

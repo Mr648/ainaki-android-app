@@ -13,8 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class API {
 
 
-    public  static  final  String BASE_URL= "http://192.168.2.1:8080/";
-//    public  static  final  String BASE_URL= "http://169.254.214.101/";
+    //    public  static  final  String BASE_URL= "http://192.168.2.1:8080/"; // LAN Network Between Rahat and Diako/Farzaneh
+    public static final String BASE_URL = "http://172.18.2.225/"; // PARK Incubator Wifi
 
     private static Retrofit retrofit;
 

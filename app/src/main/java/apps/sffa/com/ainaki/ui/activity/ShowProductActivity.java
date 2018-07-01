@@ -35,6 +35,7 @@ import apps.sffa.com.ainaki.model.request.FavoriteRequest;
 import apps.sffa.com.ainaki.model.response.GeneralResponse;
 import apps.sffa.com.ainaki.util.AinakiPrefrenceManager;
 import apps.sffa.com.ainaki.util.AndroidUtilities;
+import apps.sffa.com.ainaki.util.AppKeys;
 import apps.sffa.com.ainaki.webservice.API;
 import apps.sffa.com.ainaki.webservice.UserWebService;
 import me.relex.circleindicator.CircleIndicator;
@@ -210,7 +211,7 @@ public class ShowProductActivity extends AppCompatActivity {
 
         UserWebService api = API.getRetrofit().create(UserWebService.class);
 
-        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse("authKey"), null);
+        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY), null);
 
         Call<GeneralResponse> callProducts = api.like(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"));
 
@@ -244,7 +245,7 @@ public class ShowProductActivity extends AppCompatActivity {
     private void dislikeTheProduct() {
 
         UserWebService api = API.getRetrofit().create(UserWebService.class);
-        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse("authKey"), null);
+        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY), null);
 
         Call<GeneralResponse> callProducts = api.dislike(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"));
 

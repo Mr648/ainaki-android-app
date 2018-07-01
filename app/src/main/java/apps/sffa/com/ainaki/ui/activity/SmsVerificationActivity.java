@@ -36,6 +36,7 @@ import apps.sffa.com.ainaki.model.request.VerificationRequest;
 import apps.sffa.com.ainaki.model.response.LoginResponse;
 import apps.sffa.com.ainaki.util.AinakiPrefrenceManager;
 import apps.sffa.com.ainaki.util.AndroidUtilities;
+import apps.sffa.com.ainaki.util.AppKeys;
 import apps.sffa.com.ainaki.util.ValidationRegex;
 import apps.sffa.com.ainaki.webservice.API;
 import apps.sffa.com.ainaki.webservice.LoginWebService;
@@ -164,12 +165,12 @@ public class SmsVerificationActivity extends AppCompatActivity {
                         // TODO Goto Other Part Of Program.
                         AinakiPrefrenceManager.putString(
                                 getApplicationContext(),
-                                AndroidUtilities.base64Reverse("authKey"),
+                                AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY),
                                 response.body().getAuthKey()
                         );
                         AinakiPrefrenceManager.putString(
                                 getApplicationContext(),
-                                AndroidUtilities.base64Reverse("csrfToken"),
+                                AndroidUtilities.base64Reverse(AppKeys.CSRF_KEY),
                                 response.body().getCsrfToken()
                         );
                         Log.i(TAG, "onResponse.SUCCESS: " + response.body().getMessage());
