@@ -55,10 +55,11 @@
                     style="@style/AppTheme.TextAppearance.Test"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="تست"
                     android:layout_alignBottom="@+id/imgBorder"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginBottom="@dimen/_10dp"
-                    android:layout_centerHorizontal="true" />
+                    android:text="تست"
+                    android:visibility="gone" />
             </RelativeLayout>
         </LinearLayout>
 

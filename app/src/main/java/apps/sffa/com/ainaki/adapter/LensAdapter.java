@@ -57,7 +57,7 @@ public class LensAdapter extends RecyclerView.Adapter<LensAdapter.ViewHolder> {
 
             Animation alphaAnimation = AnimationUtils.loadAnimation(mContext, R.anim.fadeinout);
             view.findViewById(R.id.imgBorder).startAnimation(alphaAnimation);
-            view.findViewById(R.id.txtTest).startAnimation(alphaAnimation);
+//            view.findViewById(R.id.txtTest).startAnimation(alphaAnimation);
 
         }
         private ViewHolder(View view) {

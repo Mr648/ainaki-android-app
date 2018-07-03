@@ -197,6 +197,23 @@ public class SmsVerificationActivity extends AppCompatActivity {
         });
     }
 
+    public void skipThisActivity(){
+        // TODO Goto Other Part Of Program.
+        AinakiPrefrenceManager.putString(
+                getApplicationContext(),
+                AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY),
+                "samplekey"
+        );
+        AinakiPrefrenceManager.putString(
+                getApplicationContext(),
+                AndroidUtilities.base64Reverse(AppKeys.CSRF_KEY),
+                "sampleToken"
+        );
+        Intent intent = new Intent(SmsVerificationActivity.this, SecendStepLoginAcivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private boolean validateVerificationCode() {
         if (txtVerificationCode.getText().toString().trim().isEmpty()) {
             inputLayoutVerificationCode.setError(getString(R.string.error_user_phone_empty));
@@ -223,7 +240,8 @@ public class SmsVerificationActivity extends AppCompatActivity {
         }
 
         timer.start();
-        sendVerificationCode(phone, txtVerificationCode.getText().toString());
+//        sendVerificationCode(phone, txtVerificationCode.getText().toString());
+        skipThisActivity();
     }
 
     private void requestFocus(View view) {

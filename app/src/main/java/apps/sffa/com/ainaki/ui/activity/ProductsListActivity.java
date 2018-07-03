@@ -2,10 +2,13 @@ package apps.sffa.com.ainaki.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,13 +44,33 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProductsListActivity extends AppCompatActivity {
 
     RecyclerView recItems;
-    TextView txtTitle;
     private final String TAG = "ProductsListActivity";
+    private Toolbar toolbar;
+    private CollapsingToolbarLayout collapsingToolbar;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
+        collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Bundle extras = getIntent().getExtras();
 
@@ -58,12 +81,12 @@ public class ProductsListActivity extends AppCompatActivity {
             final String title = extras.getString("TITLE");
 
             recItems = (RecyclerView) findViewById(R.id.recItems);
-            txtTitle = (TextView) findViewById(R.id.txtTitle);
+            collapsingToolbar.setTitle(title);
 
-            txtTitle.setText(title);
             recItems.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
             recItems.setNestedScrollingEnabled(false);
-            fetchProductsData(recItems, category, filter);
+            recItems.setAdapter(new ProductAdapter(getApplicationContext(), initProducts(null)));
+//            fetchProductsData(recItems, category, filter);
 //            recItems.setAdapter(new ProductAdapter(ProductsListActivity.this,initProducts(null)));
         } else {
             finish();
@@ -74,12 +97,12 @@ public class ProductsListActivity extends AppCompatActivity {
     }
 
 
-    private ArrayList<Product> initProducts(String type) {
+    private ArrayList<Model> initProducts(String type) {
 
-        ArrayList<Product> products = new ArrayList<>();
+        ArrayList<Model> products = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
-            products.add(new Product(i, "product #" + i));
+        for (int i = 0; i < 25; i++) {
+            products.add(new Model(i));
 
         }
         return products;

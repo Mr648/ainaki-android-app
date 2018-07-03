@@ -18,8 +18,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.model.Gender;
@@ -58,38 +56,36 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, SettingActivity.class);
             startActivity(intent);
         } else if (id == R.id.action_aboutus) {
-        } else if (id == R.id.action_list_glass) {
-            Intent intent = new Intent(MainActivity.this, ProductsListActivity.class);
-            intent.putExtra("TITLE", "لیست عینک ها");
-            intent.putExtra("CATEGORY", "eyeglass");
-            intent.putExtra("FILTER", "all");
+            Intent intent = new Intent(MainActivity.this, AboutUsActivity.class);
             startActivity(intent);
+        } else if (id == R.id.action_list_glass) {
+            gotoProductsActivity("لیست عینک‌ها", "FAVORITES", "all");
         } else if (id == R.id.action_faq) {
         } else if (id == R.id.action_list_accessories) {
-            Intent intent = new Intent(MainActivity.this, ProductsListActivity.class);
-            intent.putExtra("TITLE", "لیست وسایل جانبی");
-            intent.putExtra("CATEGORY", "accessories");
-            intent.putExtra("FILTER", "all");
-            startActivity(intent);
+            gotoProductsActivity("لیست لوازم و وسایل", "FAVORITES", "all");
         } else if (id == R.id.action_list_lens) {
             Intent intent = new Intent(MainActivity.this, LensListActivity.class);
             startActivity(intent);
         } else if (id == R.id.action_list_purchases) {
         } else if (id == R.id.action_list_favorite) {
-            Intent intent = new Intent(MainActivity.this, ProductsListActivity.class);
-            intent.putExtra("TITLE", "لیست علاقه مندی ها");
-            intent.putExtra("CATEGORY", "FAVORITES");
-            intent.putExtra("FILTER", "all");
-            startActivity(intent);
+            gotoProductsActivity("لیست علاقه مندی ها", "FAVORITES", "all");
         } else if (id == R.id.action_ticket) {
-        }else if (id == R.id.action_profile) {
-            Intent intent = new Intent(MainActivity.this,UserProfileActivity.class);
+        } else if (id == R.id.action_profile) {
+            Intent intent = new Intent(MainActivity.this, UserProfileActivity.class);
             startActivity(intent);
         }
 
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void gotoProductsActivity(String title, String category, String filter) {
+        Intent intent = new Intent(MainActivity.this, ProductsListActivity.class);
+        intent.putExtra("TITLE", title);
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("FILTER", filter);
+        startActivity(intent);
     }
 
     private DrawerLayout drawer;
@@ -157,9 +153,9 @@ public class MainActivity extends AppCompatActivity
      */
 
     static {
-
-        org.opencv.android.OpenCVLoader.initDebug();
-        System.loadLibrary("faceDetection");
+//
+//        org.opencv.android.OpenCVLoader.initDebug();
+//        System.loadLibrary("faceDetection");
         /**
          * NOTE: OpenCVLoader.initDebug() must be used for debugging purposes only as when you are developing locally on your machine.
          * But for production purposes where you need to release the app on Play Store, etc.

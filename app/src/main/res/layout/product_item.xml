@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_4dp"
-        android:layout_marginEnd="@dimen/_16dp"
-        android:layout_marginLeft="@dimen/_16dp"
-        android:layout_marginRight="@dimen/_16dp"
-        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:layout_marginLeft="@dimen/_8dp"
+        android:layout_marginRight="@dimen/_8dp"
+        android:layout_marginStart="@dimen/_8dp"
         android:layout_marginTop="@dimen/_4dp"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="@dimen/_4dp"
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
-                        android:text="TextView"
+                        android:text="Product Name"
                         android:textSize="@dimen/_24sp" />
                 </LinearLayout>
 
@@ -87,7 +87,7 @@
                         android:layout_margin="@dimen/_16dp"
                         android:layout_weight="5"
                         android:gravity="right|center_vertical"
-                        android:text="TextView" />
+                        android:text="$ ####" />
 
                     <TextView
                         android:id="@+id/txtPrice"
@@ -96,7 +96,7 @@
                         android:layout_margin="@dimen/_16dp"
                         android:layout_weight="4"
                         android:gravity="left|center_vertical"
-                        android:text="TextView" />
+                        android:text="Type" />
 
                 </LinearLayout>
 

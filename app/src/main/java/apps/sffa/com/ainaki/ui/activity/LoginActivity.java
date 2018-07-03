@@ -120,10 +120,13 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
-        sendSms(txtPhone.getText().toString());
+//        sendSms(txtPhone.getText().toString());
+        skipThisActivity(txtPhone.getText().toString());
     }
 
     private void sendSms(final String phone) {
+
+
 
 
 
@@ -166,8 +169,16 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(TAG, "onFailure: " + t.getMessage());
             }
         });
+
     }
 
+    public void skipThisActivity(String phone){
+        Intent intent = new Intent(LoginActivity.this, SmsVerificationActivity.class);
+        intent.putExtra("phone", phone);
+
+        startActivity(intent);
+        finish();
+    }
 
     private boolean validateUserPhone() {
         if (txtPhone.getText().toString().trim().isEmpty()) {

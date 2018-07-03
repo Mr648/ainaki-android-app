@@ -111,7 +111,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         final Model currentProduct = mItems.get(position);
 
-        Log.i("PRODUCT", position + " :: " + currentProduct);
+//        Log.i("PRODUCT", position + " :: " + currentProduct);
 //
 //        holder.getTxtPrice().setText(String.format("%.3f", currentProduct.getAttrs().get("price")));
 //

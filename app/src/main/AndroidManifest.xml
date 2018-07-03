@@ -80,15 +80,18 @@
 
         </activity>
 
-        <activity android:name=".ui.activity.AboutUsActivity">
+        <activity android:name=".ui.activity.AboutUsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
-        <activity android:name=".ui.activity.SettingActivity">
+        <activity android:name=".ui.activity.SettingActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
-        <activity android:name=".ui.activity.FAQActivity">
+        <activity android:name=".ui.activity.FAQActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
@@ -111,21 +114,23 @@
 
         </activity>
 
-        <activity android:name=".ui.activity.UserProfileActivity">
-
-        </activity>
-
-        <activity android:name=".ui.activity.ShowProductActivity">
-
-        </activity>
-
-        <activity
-            android:name=".ui.activity.FaceDetectActivity"
-            android:screenOrientation="landscape"
+        <activity android:name=".ui.activity.UserProfileActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
+        </activity>
+
+        <activity android:name=".ui.activity.ShowProductActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+
+        <!--<activity-->
+            <!--android:name=".ui.activity.FaceDetectActivity"-->
+            <!--android:screenOrientation="landscape"-->
+            <!--android:theme="@style/AppTheme.NoActionBar">-->
+
+
+        <!--</activity>-->
     </application>
 
 </manifest>

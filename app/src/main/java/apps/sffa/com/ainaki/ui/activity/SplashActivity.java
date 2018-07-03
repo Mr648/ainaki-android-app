@@ -6,6 +6,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import apps.sffa.com.ainaki.R;
@@ -22,18 +23,23 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        findViewById(R.id.imgLogo).startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake));
+
         String authKey = AinakiPrefrenceManager.getString(getApplicationContext(), AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY), null);
         final boolean isAuthenticated = (authKey != null && !authKey.isEmpty());
 
-        new CountDownTimer(5000, 100) {
+//        findViewById(R.id.imgLogo).animate().translationX(150).translationXBy(0).rotation(360).setDuration(1500).alpha(0.0f).setDuration(1000).alpha(1.0f).setDuration(1000).start();
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+        findViewById(R.id.imgLogo).startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onTick(final long l) {
+            public void onAnimationStart(Animation animation) {
 
             }
 
             @Override
-            public void onFinish() {
+            public void onAnimationEnd(Animation animation) {
+
                 if (isAuthenticated) {
                     startActivity(new Intent(SplashActivity.this, GenderActivity.class));
                     finish();
@@ -42,7 +48,11 @@ public class SplashActivity extends AppCompatActivity {
                     finish();
                 }
             }
-        }.start();
 
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 }

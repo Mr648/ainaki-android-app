@@ -23,6 +23,7 @@ import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProductCategoryAdapter;
 import apps.sffa.com.ainaki.model.Gender;
 import apps.sffa.com.ainaki.ui.activity.LensListActivity;
+import apps.sffa.com.ainaki.ui.activity.ProductsListActivity;
 
 public class HomeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -76,15 +77,21 @@ public class HomeFragment extends Fragment {
         relEyeGlass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), LensListActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), ProductsListActivity.class);
+                intent.putExtra("TITLE", "عینک‌های طبی");
+                intent.putExtra("CATEGORY", "ddd");
+                intent.putExtra("FILTER", "dd");
+                startActivity(intent);
             }
         });
         relSunGlass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), LensListActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), ProductsListActivity.class);
+                intent.putExtra("TITLE", "عینک‌های آفتابی");
+                intent.putExtra("CATEGORY", "dd");
+                intent.putExtra("FILTER", "d");
+                startActivity(intent);
             }
         });
         relLens.setOnClickListener(new View.OnClickListener() {

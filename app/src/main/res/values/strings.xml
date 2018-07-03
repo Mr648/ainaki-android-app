@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ainaki</string>
+    <string name="app_name">عینکی</string>
     <string name="btn_send">ارسال</string>
     <string name="btn_confirm">تایید</string>
     <string name="btn_pick">انتخاب</string>
@@ -26,7 +26,7 @@
     <string name="hint_more_detail">توضیحات تکمیلی</string>
     <string name="label_confirm">تایید</string>
     <string name="label_sffa">SFFA</string>
-    <string name="label_company">Application Design Studio</string>
+    <string name="label_company">استودیو طراحی و تولید اپلیکیشن</string>
     <string name="label_forget_password">فراموشی رمز عبور؟</string>
     <string name="label_forget_password_normal">فراموشی رمز عبور</string>
     <string name="label_create_acoount">آیا حساب کاربری ندارید؟</string>
