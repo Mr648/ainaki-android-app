@@ -2,6 +2,7 @@ package apps.sffa.com.ainaki.util;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
@@ -38,6 +39,9 @@ public class FontManager {
             ((TextInputLayout)view).setTypeface(typeface);
         }else if (view instanceof TextInputEditText) {
             ((TextInputEditText)view).setTypeface(typeface);
+        }else if (view instanceof CollapsingToolbarLayout) {
+            ((CollapsingToolbarLayout)view).setCollapsedTitleTypeface(typeface);
+            ((CollapsingToolbarLayout)view).setExpandedTitleTypeface(typeface);
         }
     }
     public static void markAsContainer(final View parentView, final Typeface typeface) {

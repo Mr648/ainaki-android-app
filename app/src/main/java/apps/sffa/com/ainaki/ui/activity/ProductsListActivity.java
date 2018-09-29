@@ -9,11 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,21 +17,16 @@ import java.util.List;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ProductAdapter;
-import apps.sffa.com.ainaki.model.Favorite;
 import apps.sffa.com.ainaki.model.Model;
-import apps.sffa.com.ainaki.model.Product;
-import apps.sffa.com.ainaki.model.request.FavoriteRequest;
 import apps.sffa.com.ainaki.model.request.GeneralRequest;
 import apps.sffa.com.ainaki.util.AndroidUtilities;
-import apps.sffa.com.ainaki.util.AppKeys;
+import apps.sffa.com.ainaki.util.KEYS;
 import apps.sffa.com.ainaki.webservice.API;
 import apps.sffa.com.ainaki.webservice.ProductListWebService;
 import apps.sffa.com.ainaki.webservice.UserWebService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Diako on 21/05/2018.
@@ -114,7 +105,7 @@ public class ProductsListActivity extends AppCompatActivity {
         switch (category) {
             case "FAVORITES": {
                 UserWebService api = API.getRetrofit().create(UserWebService.class);
-                callProducts = api.getFavoriteProducts(new GeneralRequest(AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY)));
+                callProducts = api.getFavoriteProducts(new GeneralRequest(AndroidUtilities.base64Reverse(KEYS.AUTH_KEY)));
             }
             break;
             default: {

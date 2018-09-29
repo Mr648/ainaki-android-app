@@ -1,8 +1,6 @@
 package apps.sffa.com.ainaki.ui.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
@@ -10,17 +8,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
-import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,13 +24,11 @@ import java.util.TimerTask;
 
 import apps.sffa.com.ainaki.R;
 import apps.sffa.com.ainaki.adapter.ImageSliderAdapter;
-import apps.sffa.com.ainaki.adapter.ProductAdapter;
-import apps.sffa.com.ainaki.model.Product;
 import apps.sffa.com.ainaki.model.request.FavoriteRequest;
 import apps.sffa.com.ainaki.model.response.GeneralResponse;
 import apps.sffa.com.ainaki.util.AinakiPrefrenceManager;
 import apps.sffa.com.ainaki.util.AndroidUtilities;
-import apps.sffa.com.ainaki.util.AppKeys;
+import apps.sffa.com.ainaki.util.KEYS;
 import apps.sffa.com.ainaki.webservice.API;
 import apps.sffa.com.ainaki.webservice.UserWebService;
 import me.relex.circleindicator.CircleIndicator;
@@ -227,7 +219,7 @@ public class ShowProductActivity extends AppCompatActivity {
 
         UserWebService api = API.getRetrofit().create(UserWebService.class);
 
-        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY), null);
+        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse(KEYS.AUTH_KEY), null);
 
         Call<GeneralResponse> callProducts = api.like(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"));
 
@@ -261,7 +253,7 @@ public class ShowProductActivity extends AppCompatActivity {
     private void dislikeTheProduct() {
 
         UserWebService api = API.getRetrofit().create(UserWebService.class);
-        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY), null);
+        String authKey = AinakiPrefrenceManager.getString(ShowProductActivity.this, AndroidUtilities.base64Reverse(KEYS.AUTH_KEY), null);
 
         Call<GeneralResponse> callProducts = api.dislike(new FavoriteRequest(authKey, Integer.toString(productId), "eyeglass"));
 

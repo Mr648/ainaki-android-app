@@ -41,15 +41,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextInputEditText txtPhone;
     private TextInputLayout inputLayoutPhone;
-    private TextView txtActivtyTitle;
 
+    private TextView txtActivtyTitle;
+    private TextView txtLabel;
 
     private Button btnLogin;
-
     private Typeface fontIranSans;
 
-
-    private String TAG = "LoginActivity";
+    private String TAG = LoginActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,11 +57,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
         fontIranSans = FontManager.getTypeface(getApplicationContext(), FontManager.IRANSANS_TEXTS);
-        CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator);
+
         txtPhone = (TextInputEditText) findViewById(R.id.txtPhone);
-
-
         inputLayoutPhone = (TextInputLayout) findViewById(R.id.inputLayoutPhone);
+        txtActivtyTitle = (TextView) findViewById(R.id.txtActivtyTitle);
+        txtLabel = (TextView) findViewById(R.id.txtLabel);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
 
 
         txtPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -70,12 +70,10 @@ public class LoginActivity extends AppCompatActivity {
                 if (hasFocus)
                     inputLayoutPhone.setHint("");
                 else
-                    inputLayoutPhone.setHint("09xxxxxxxxx");
+                    inputLayoutPhone.setHint("شماره موبایل خود را وارد کنید");
             }
         });
-        txtActivtyTitle = (TextView) findViewById(R.id.txtActivtyTitle);
-        //  txtDontHaveAccount = (TextView) findViewById(R.id.txtDontHaveAccount);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
+
 
 
         Bundle extras = getIntent().getExtras();
@@ -85,9 +83,6 @@ public class LoginActivity extends AppCompatActivity {
             txtPhone.setText(phone);
         }
 
-        setFont();
-//        inputLayoutEmail.setErrorEnabled(true);
-        //  inputLayoutPassword.setErrorEnabled(true);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,21 +90,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        setFont();
     }
 
     private void setFont() {
         FontManager.setFont(txtPhone, fontIranSans);
-        // FontManager.setFont(txtPassword, fontIranSans);
         FontManager.setFont(inputLayoutPhone, fontIranSans);
-        //  FontManager.setFont(inputLayoutPassword, fontIranSans);
-
         FontManager.setFont(txtActivtyTitle, fontIranSans);
-        //FontManager.setFont(txtDontHaveAccount, fontIranSans);
-
-        // FontManager.setFont(btnRegister, fontIranSans);
         FontManager.setFont(btnLogin, fontIranSans);
-        // FontManager.setFont(btnForgetPassword, fontIranSans);
-
+        FontManager.setFont(txtLabel, fontIranSans);
     }
 
 
@@ -119,63 +108,13 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-
-//        sendSms(txtPhone.getText().toString());
         skipThisActivity(txtPhone.getText().toString());
     }
 
-    private void sendSms(final String phone) {
 
-
-
-
-
-        Retrofit retrofit = API.getRetrofit();
-
-        LoginWebService webService = retrofit.create(LoginWebService.class);
-
-
-        Call<LoginResponse> callWebservice =
-                webService.login(new LoginRequest(phone));
-
-        callWebservice.enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.body() != null) {
-
-                    if (!response.body().hasError()) {
-
-                        // Login Successfull
-                        // TODO go to verification activity
-                        Log.i(TAG, "onResponse.SUCCESS: " + response.body().getMessage());
-
-                        Intent intent = new Intent(LoginActivity.this, SmsVerificationActivity.class);
-                        intent.putExtra("phone", phone);
-
-                        startActivity(intent);
-                        finish();
-
-                    } else {
-                        Log.i(TAG, "onResponse.FAILURE: " + response.body().getMessage());
-                    }
-
-                } else {
-                    Log.i(TAG, "onResponse.NULL: " + null);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Log.i(TAG, "onFailure: " + t.getMessage());
-            }
-        });
-
-    }
-
-    public void skipThisActivity(String phone){
+    public void skipThisActivity(String phone) {
         Intent intent = new Intent(LoginActivity.this, SmsVerificationActivity.class);
         intent.putExtra("phone", phone);
-
         startActivity(intent);
         finish();
     }
@@ -185,15 +124,12 @@ public class LoginActivity extends AppCompatActivity {
             inputLayoutPhone.setError(getString(R.string.error_user_phone_empty));
             requestFocus(txtPhone);
             return false;
-
         } else if (!Pattern.matches(ValidationRegex.REGEX_UserPHONE, txtPhone.getText().toString())) {
             inputLayoutPhone.setError(getString((R.string.error_user_phone_invalid)));
             requestFocus(txtPhone);
             return false;
-
         } else {
             inputLayoutPhone.setErrorEnabled(false);
-
         }
         return true;
     }
@@ -203,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
         if (view.requestFocus()) {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
-
     }
 
+    // TODO send verification code to user
 }

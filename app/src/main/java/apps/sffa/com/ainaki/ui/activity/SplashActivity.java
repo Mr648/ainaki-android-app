@@ -2,17 +2,12 @@ package apps.sffa.com.ainaki.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import apps.sffa.com.ainaki.R;
-import apps.sffa.com.ainaki.util.AinakiPrefrenceManager;
-import apps.sffa.com.ainaki.util.AndroidUtilities;
-import apps.sffa.com.ainaki.util.AppKeys;
 
 /**
  * Created by Diako on 29/05/2018.
@@ -24,11 +19,13 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        String authKey = AinakiPrefrenceManager.getString(getApplicationContext(), AndroidUtilities.base64Reverse(AppKeys.AUTH_KEY), null);
-        final boolean isAuthenticated = (authKey != null && !authKey.isEmpty());
+        final boolean isAuthenticated = checkLogin();
+
 
 //        findViewById(R.id.imgLogo).animate().translationX(150).translationXBy(0).rotation(360).setDuration(1500).alpha(0.0f).setDuration(1000).alpha(1.0f).setDuration(1000).start();
-        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+//        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake);
+        Animation animation = new AlphaAnimation(0.5f,1.0f);
+        animation.setDuration(2000);
         findViewById(R.id.imgLogo).startAnimation(animation);
 
         animation.setAnimationListener(new Animation.AnimationListener() {
@@ -54,5 +51,15 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private boolean checkLogin() {
+
+
+//        String authKey = AinakiPrefrenceManager.getString(getApplicationContext(), AndroidUtilities.base64Reverse(KEYS.AUTH_KEY), null);
+
+        // TODO check if user is logged in here
+
+        return false;
     }
 }

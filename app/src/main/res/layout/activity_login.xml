@@ -68,7 +68,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/txtLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -109,10 +109,10 @@
                 <Button
                     android:id="@+id/btnLogin"
                     style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_128dp"
                     android:layout_height="@dimen/_64dp"
                     android:padding="@dimen/_8dp"
-                    android:text="ورود"
+                    android:text="دریافت کد"
                     android:textSize="@dimen/_18sp" />
 
 
